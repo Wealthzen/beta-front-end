@@ -1,0 +1,820 @@
+[
+    {
+        "type": "TEXT_INPUT",
+        "question": "What's your first name?",
+        "top_description": "We’ll use this to personalize your experience.",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "Continue",
+        "phase": 1,
+        "order": 10,
+        "choices": null,
+        "detailedDesc": null,
+        "input_placeholder": "E.g. David",
+        "user_prop": "name",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "TEXT_INPUT",
+        "question": "How old are you?",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "Continue",
+        "phase": 1,
+        "order": 20,
+        "choices": null,
+        "detailedDesc": null,
+        "input_placeholder": "E.g. 20",
+        "user_prop": "age",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "PICK_ONE_3",
+        "question": " Which of the following sounds more like you",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 1,
+        "order": 30,
+        "choices": [
+            {
+                "text": "I have some investing experience",
+                "imageUrl": "https://www.dropbox.com/s/9zvl85diszs1cu0/1.png?dl=1",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": {
+                    "investmentExperience": "some"
+                },
+                "investmentAttributes": null
+            },
+            {
+                "text": "i have no investing experience and prefer guidance",
+                "imageUrl": "https://www.dropbox.com/s/1hm5638manbh9il/2.png?dl=1",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                    "investmentExperience": "none"
+                },
+                "investmentAttributes": null
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "PICK_ONE_2",
+        "question": "",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "Continue",
+        "phase": 1,
+        "order": 40,
+        "choices": [
+            {
+                "text": "I care about my return target",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": {
+                    "riskReturnChoice": "returns"
+                },
+                "investmentAttributes": null
+            },
+            {
+                "text": "I care about managing risk",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                    "riskReturnChoice": "risk"
+                },
+                "investmentAttributes": null
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": {
+            "type": "Answer",
+            "questionId": 3,
+            "value": "A"
+        }
+    },
+    {
+        "type": "PICK_ONE_3",
+        "question": "This money is invested for",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "Continue",
+        "phase": 1,
+        "order": 50,
+        "choices": [
+            {
+                "text": "Less than 2 years",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": {
+                    "investmentHorizon": "less than 2 years"
+                },
+                "investmentAttributes": {
+                    "volatility": 1
+                }
+            },
+            {
+                "text": "From 2 to 5 years",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                    "investmentHorizon": "2-5 years"
+                },
+                "investmentAttributes": {
+                    "volatility": 0
+                }
+            },
+            {
+                "text": "More than 5 years",
+                "imageUrl": "",
+                "value": "C",
+                "order": 3,
+                "portfolioAttributes": {
+                    "investmentHorizon": "more than 5 years"
+                },
+                "investmentAttributes": {
+                    "volatility": -1
+                }
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "PICK_ONE_3",
+        "question": "I want to",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "Continue",
+        "phase": 1,
+        "order": 60,
+        "choices": [
+            {
+                "text": "Preserve capital and take low risk",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": {
+                    "investmentObjective": "preserve capital low risk"
+                },
+                "investmentAttributes": {
+                    "risk": -1,
+                    "ttr": 1
+                }
+            },
+            {
+                "text": "Grow capital by taking some risk",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                    "investmentObjective": "grow capital some risk"
+                },
+                "investmentAttributes": {
+                    "risk": 0,
+                    "ttr": 0
+                }
+            },
+            {
+                "text": "Maximise capital growth by taking risk",
+                "imageUrl": "",
+                "value": "C",
+                "order": 3,
+                "portfolioAttributes": {
+                    "investmentObjective": "maximize capital taking risk"
+                },
+                "investmentAttributes": {
+                    "risk": 1,
+                    "ttr": -1
+                }
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "PICK_ONE_3",
+        "question": "I like to read",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 1,
+        "order": 70,
+        "choices": [
+            {
+                "text": "Market News",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": { 
+                    "newsSelection": "market news" 
+                },
+                "investmentAttributes": null
+            },
+            {
+                "text": "Entertainment & Sport News",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                    "newsSelection": "entertainment sports news"
+                },
+                "investmentAttributes": null
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "PICK_ONE_2",
+        "question": "I prefer",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 1,
+        "order": 80,
+        "choices": [
+            {
+                "text": "Staggered or systematic investing (gradual)",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": {
+                    "staggeredSystematic": "staggered"
+                },
+                "investmentAttributes": null
+            },
+            {
+                "text": "One-time investment",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                    "staggeredSystematic": "systematic"
+                },
+                "investmentAttributes": null
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "TEXT_INPUT",
+        "question": "What's your email?",
+        "top_description": "Don’t let your time go to waste, save your result.",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 3,
+        "order": 10,
+        "choices": null,
+        "detailedDesc": null,
+        "input_placeholder": "E.g. david@gmail.com",
+        "user_prop": "email",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "PICK_ONE_2",
+        "question": "If your portfolio is down 15%, what will you do?",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 3,
+        "order": 20,
+        "choices": [
+            {
+                "text": "Sleep peacefully as you are in it for the long term",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": {
+                    "down15PercReaction": "sleep peacefully"
+                },
+                "investmentAttributes": null
+            },
+            {
+                "text": "Get worried and take action",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                    "down15PercReaction": "get worried"
+                },
+                "investmentAttributes": null
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "PICK_ONE_2",
+        "question": "How long you have been investing?",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 3,
+        "order": 30,
+        "choices": [
+            {
+                "text": "Less than 1 years",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": {
+                    "investmentExperienceLength": 1
+                },
+                "investmentAttributes": {
+                    "risk": 1
+                }
+            },
+            {
+                "text": "1 to 3 years",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                    "investmentExperienceLength": 2
+                },
+                "investmentAttributes": {
+                    "risk": 0
+                }
+            },
+            {
+                "text": "More than 3 years",
+                "imageUrl": "",
+                "value": "C",
+                "order": 3,
+                "portfolioAttributes": {
+                    "investmentExperienceLength": 3
+                },
+                "investmentAttributes": {
+                    "risk": -1
+                }
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "PICK_ONE_2",
+        "question": "Which of these themes would you add to your portfolio?",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 3,
+        "order": 40,
+        "choices": [
+            {
+                "text": "Electric Vehicles Theme",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": {
+                    "investmentThemeChoice": "Electric Vehicles Theme"
+                },
+                "investmentAttributes": null
+            },
+            {
+                "text": "Clean Energy Theme",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                    "investmentThemeChoice": "Clean Energy Theme"
+                },
+                "investmentAttributes": null
+            },
+            {
+                "text": "None of the above",
+                "imageUrl": "",
+                "value": "C",
+                "order": 3,
+                "portfolioAttributes": {
+                    "investmentThemeChoice": "None of the above"
+                },
+                "investmentAttributes": null
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "YES_NO",
+        "question": "Are you an accredited investor or retail?",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 3,
+        "order": 50,
+        "choices": [
+            {
+                "text": "Yes",
+                "imageUrl": "",
+                "value": "True",
+                "order": 1,
+                "portfolioAttributes": {
+                  "accreditedInvestor": "Yes"
+                },
+                "investmentAttributes": null
+            },
+            {
+                "text": "No",
+                "imageUrl": "",
+                "value": "False",
+                "order": 2,
+                "portfolioAttributes": {
+                  "accreditedInvestor": "No"
+                },
+                "investmentAttributes": null
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "PICK_ONE_2",
+        "question": "Will you add",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 3,
+        "order": 60,
+        "choices": [
+            {
+                "text": "Private Equity",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": {
+                  "addAlternativeInvestments": "PE"
+                },
+                "investmentAttributes": null
+            },
+            {
+                "text": "Venture Capital",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                  "addAlternativeInvestments": "VC"
+                },
+                "investmentAttributes": null
+            },
+            {
+              "text": "Crypto",
+              "imageUrl": "",
+              "value": "C",
+              "order": 2,
+              "portfolioAttributes": {
+                "addAlternativeInvestments": "Crypto"
+              },
+              "investmentAttributes": null
+          }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": {
+            "type": "Answer",
+            "questionId": 13,
+            "value": "False"
+        }
+    },
+    {
+        "type": "PICK_ONE_2",
+        "question": "Which investment journey would you like?",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 5,
+        "order": 10,
+        "choices": [
+            {
+                "text": "Smooth",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": {
+                  "smoothBumpy": "smooth"
+                },
+                "investmentAttributes": {
+                    "volatility": -1
+                }
+            },
+            {
+                "text": "Bumpy",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": {
+                  "smoothBumpy": "bumpy"
+                },
+                "investmentAttributes": {
+                    "volatility": 1
+                }
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "YES_NO",
+        "question": "Would you like to be the Chief Investment Officer of your own portfolio?",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 5,
+        "order": 20,
+        "choices": [
+            {
+                "text": "Yes",
+                "imageUrl": "",
+                "value": "True",
+                "order": 1,
+                "portfolioAttributes": null,
+                "investmentAttributes": null
+            },
+            {
+                "text": "No",
+                "imageUrl": "",
+                "value": "False",
+                "order": 2,
+                "portfolioAttributes": null,
+                "investmentAttributes": null
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "YES_NO",
+        "question": "Would you like to use our CIO simulator / dashboard to see the impact on portfolio based on views on markets?",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 5,
+        "order": 30,
+        "choices": [
+            {
+                "text": "Yes",
+                "imageUrl": "",
+                "value": "True",
+                "order": 1,
+                "portfolioAttributes": null,
+                "investmentAttributes": null
+            },
+            {
+                "text": "No",
+                "imageUrl": "",
+                "value": "False",
+                "order": 2,
+                "portfolioAttributes": null,
+                "investmentAttributes": null
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "READ_ONLY",
+        "question": "Congratulation, you’ve just completed the quiz!",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 6,
+        "order": 2,
+        "choices": null,
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "https://www.dropbox.com/s/hm7nclzwze77mny/finish.png?dl=1",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "FORM_PORTFOLIO_3",
+        "question": "",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 6,
+        "order": 3,
+        "choices": null,
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "READ_ONLY",
+        "question": "First, let’s make sure your entry is saved",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "Set a password",
+        "phase": 6,
+        "order": 4,
+        "choices": null,
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "TEXT_INPUT",
+        "question": "Set a password",
+        "top_description": "Create a password and save your account along with your results.",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "Confirm and continue",
+        "phase": 6,
+        "order": 10,
+        "choices": null,
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "password",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "READ_ONLY",
+        "question": "Password set, your entry is safe!",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 6,
+        "order": 11,
+        "choices": null,
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "YES_NO",
+        "question": "Where do you think the S&P500 will close on Friday?",
+        "top_description": "",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "",
+        "phase": 6,
+        "order": 20,
+        "choices": [
+            {
+                "text": "Yes",
+                "imageUrl": "",
+                "value": "True",
+                "order": 1,
+                "portfolioAttributes": null,
+                "investmentAttributes": null
+            },
+            {
+                "text": "No",
+                "imageUrl": "",
+                "value": "False",
+                "order": 2,
+                "portfolioAttributes": null,
+                "investmentAttributes": null
+            }
+        ],
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    },
+    {
+        "type": "READ_ONLY",
+        "question": "You have officially entered the draw!",
+        "top_description": "Login to wealthzen.ai next week to see the result of the draw and track how your portfolio is performing",
+        "top_desc_href": "",
+        "bottom_description": "",
+        "bottom_desc_href": "",
+        "button": "Back to Homepage",
+        "phase": 6,
+        "order": 30,
+        "choices": null,
+        "detailedDesc": null,
+        "input_placeholder": "",
+        "user_prop": "",
+        "imageUrl": "",
+        "buttonAction": "",
+        "skipLogic": null
+    }
+]

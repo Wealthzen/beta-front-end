@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+if [ ! -d /.composer ]; then
+    mkdir /.composer
+fi
+
+chmod -R ugo+rw /.composer
+
+composer update
+
+echo DB_HOST ${DB_HOST}
+echo DB_PORT ${DB_PORT}
+
+/usr/bin/php /app/artisan migrate:install
+/usr/bin/php /app/artisan migrate --env=production --force
+
+/usr/bin/php /app/artisan key:generate --force
+/usr/bin/php -d variables_order=EGPCS /app/artisan serve --host=0.0.0.0 --port=${BACKEND_PORT}
