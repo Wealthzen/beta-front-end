@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer FormPickOneItem {
+	figure img + p {
+		@apply pt-8;
+	} 
+}
+
+@layer FormPortfolioItem1 {
+	.form-content .item > * {
+		@apply duration-500;
+	}
+}
+
+.form-content .item.active > * {
+	transform: translateY(-100%);
+}
+.form-content .item.active > div > p {
+	top: -0.6rem;
+}
+.form-content .item.active i.iconw-arrow-top {
+	display: inline-flex;
+	transform: rotate(180deg);
+}
+/* Custom Checkbox*/
+.form-multiple .box {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	font-size: 20px;
+}
+/* Hide the default style of the checkbox */
+.form-multiple input[type=checkbox] {
+	visibility: hidden;
+}
+/* Create a custom checkbox */
+.form-multiple .mark {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	height: 20px;
+	width: 20px;
+	background-color: #FFFFFF;
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	transform: translateY(-50%);
+}
+/* Specify the background color for the checkbox while hovering */
+.form-multiple .box:hover input + .mark {
+	border-color: #EB5471;
+}
+/* Specify the background color for the checkbox when it is checked */
+.form-multiple .box input:checked + .mark {
+	background-color: #FFFFFF;
+	border: 1px solid #EB5471;
+	border-radius: 50%;
+}
+/* Checkmark to be shown in checkbox */
+/* It will not be shown when not checked */
+.form-multiple .mark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+/* Display checkmark when checked */
+.form-multiple .box input:checked + .mark:after {
+	display: block;
+}
+/* Styling the checkmark using webkit */
+/* Rotated the rectangle by 45 degree and showing only two border to make it look like a tick mark */
+.form-multiple .box .mark:after {
+	left: 4px;
+	bottom: 4px;
+	width: 10px;
+	height: 10px;
+	background: #EB5471;
+	border-radius: 50%;
+}

@@ -1,0 +1,5 @@
+FROM nginx:1.21-alpine
+
+FROM nginx
+
+COPY build /usr/share/nginx/html

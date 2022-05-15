@@ -1,0 +1,7 @@
+# For more information: https://laravel.com/docs/sail
+version: '3'
+services:
+    frontend_service:
+        image: 192.53.115.165:5000/wealthzen-frontend:latest
+        ports:
+            - '0.0.0.0:${APP_PORT:-80}:80'
