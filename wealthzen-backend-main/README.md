@@ -45,3 +45,8 @@ curl --location --request POST 'https://host.com/api/questions/import' \
 ```
 
 Note that if a posted question has the same `phase` and `order` values as an existing question in the database, it will be updated instead of created.
+
+### For error: permission denied while connecting to the Docker daemon socket
+Run:
+```sudo chmod 666 /var/run/docker.sock
+```
