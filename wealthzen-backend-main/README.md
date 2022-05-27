@@ -71,6 +71,14 @@ docker-compose down
 
 You can also deploy the front-end service in the docker-compose file, and use Nginx to config the route, as in `nginx.example.conf`.
 
+### Other useful docker commands 
+
+Check docker is running 
+```bash 
+docker ps
+```
+
+
 ### Start the service with Kubernetes
 
 To be defined...
