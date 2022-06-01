@@ -1,3 +1,55 @@
+## Setup an instance
+
+Image: ubuntu 
+
+Security Group: Allow HTTP, HTTPS
+
+## Install Stuff
+
+```
+sudo apt install nginx
+sudo apt install snapd
+sudo snap install core; sudo snap refresh core
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx -d wztestfe.ga www.wztestbe.ga
+sudo certbot --nginx -d wztestfe.ga www.wztestfe.ga
+sudo certbot --nginx -d wztestfe.ga -d www.wztestfe.ga
+systemctl status nginx
+sudo nginx -t
+ls
+git clone https://github.com/Wealthzen/beta-front-end.git
+ls
+cd beta-front-end
+ls
+cd wealthzen-
+cd wealthzen-frontend-main/
+ls
+sudo apt install nodejs
+ls
+npm install
+sudo apt install npm
+npm install
+npm run build
+ls
+sudo chown -R ubuntu /var/www/html
+mv build /var/www/
+mv build /var/www/html
+cd /var/www/html
+ls -Fila
+sudo mv build ..
+cd ..
+ls
+mv html html_old
+sudo mv html html_old
+sudo mv build html
+sudo chown -R ubuntu /var/www/html
+```
+
+## Access the Site
+
+Point the browser to <<wztestfe.ga>> (as configured in )
+
 # wealthzen-frontend
 
 `src > app > utils.js`
@@ -38,46 +90,3 @@ export const getBaseOptimizerUrl = () => {
     return baseURL;
 };
 ```
-10  sudo apt install nginx
-   11  sudo apt install snapd
-   12  sudo snap install core; sudo snap refresh core
-   13  sudo snap install --classic certbot
-   14  sudo ln -s /snap/bin/certbot /usr/bin/certbot
-   15  sudo certbot --nginx -d wztestfe.ga www.wztestbe.ga
-   16  sudo certbot --nginx -d wztestfe.ga www.wztestfe.ga
-   17  sudo certbot --nginx -d wztestfe.ga -d www.wztestfe.ga
-   18  systemctl status nginx
-   19  sudo nginx -t
-   20  ls
-   21  git clone https://github.com/Wealthzen/beta-front-end.git
-   22  ls
-   23  cd beta-front-end
-   24  ls
-   25  cd wealthzen-
-   26  cd wealthzen-frontend-main/
-   27  ls
-   28  sudo apt install nodejs
-   29  ls
-   30  npm install
-   31  sudo apt install npm
-   32  npm install
-   33  npm run build
-   34  ls
-   35  sudo chown -R ubuntu /var/www/html
-   36  mv build /var/www/
-   37  mv build /var/www/html
-   38  cd /var/www/html
-   39  ls -Fila
-   40  sudo mv build ..
-   41  cd ..
-   42  ls
-   43  mv html html_old
-   44  sudo mv html html_old
-   45  sudo mv build html
-   46  sudo chown -R ubuntu /var/www/html
-   47  history
-   48  history 
-   49  exit
-   50  history 
-   51  cat history >> whatidid.txt
-   52  history >> whatidid.txt
