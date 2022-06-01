@@ -369,7 +369,8 @@ export const getBaseUrl = () => {
         window.location.hostname === 'localhost' ||
         window.location.hostname === '127.0.0.1'
     ) {
-        baseURL = 'http://192.53.115.165:5301/';
+        // baseURL = 'http://192.53.115.165:5301/';
+        baseURL = 'https://wztestbe.ga/';
     } else {
         baseURL = window.location.href;
     }
@@ -384,7 +385,8 @@ export const getBaseOptimizerUrl = () => {
         window.location.hostname === 'localhost' ||
         window.location.hostname === '127.0.0.1'
     ) {
-        baseURL = 'http://192.53.115.165:8000/';
+        // baseURL = 'http://192.53.115.165:8000/';
+        baseURL = 'https://wztestbe.ga/';
     } else {
         baseURL = window.location.href;
     }
