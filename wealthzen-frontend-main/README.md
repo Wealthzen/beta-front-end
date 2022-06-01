@@ -69,7 +69,7 @@ sudo chown -R ubuntu /var/www/html
 
 ## Access the Site
 
-Point the browser to <<wzenfe.ga>> (as configured in src/)
+Point the browser to <<wzenfe.ga>> 
 
 # wealthzen-frontend
 
