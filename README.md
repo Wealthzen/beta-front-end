@@ -1,12 +1,11 @@
-# beta-front-end
-Beta front end 
+# beta (both FE & BE)
 
 1. Decouple optimizer from the frontend, show static portfolio instead.
 2. Change the order of questions
 3. Change the question itself and make sure it gets saved in the database.
 
 
-APIS: 
+## APIS: 
 
 ### get all users
 https://wztestbe.ga/api/users
