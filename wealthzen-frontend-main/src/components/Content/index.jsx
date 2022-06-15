@@ -74,24 +74,18 @@ function Content(props) {
     const currentPhase = useSelector((state) => state.currentPhase);
     const test = useSelector((state) => state.portfolioAttrState);
 
-    // fetch questions api
+    // Fetch all Questions using questionAPI
     useEffect(() => {
         const fetchQuestion = async () => {
             const question = await questionApi.getAll();
-            // console.log(question);
-
             const firstQuestion = question.data[0];
 
             dispatch(setQuestion(question.data));
             dispatch(updateQuestion(firstQuestion));
         };
-
         fetchQuestion();
-    }, []);
-
-    useEffect(() => {
-        console.log(test);
-    }, [test]);
+    }, [dispatch]);
+    
 
     const style = () => {
         switch (currentQuestion.type) {

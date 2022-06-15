@@ -60,6 +60,8 @@ function FormPortfolio1(props) {
 
     }
 
+    console.log(loading);
+
     return (
         <div
             className={`form-style form-portfolio w-full form-style-${data.style}`}
@@ -69,6 +71,7 @@ function FormPortfolio1(props) {
                     {data.title}
                 </h2>
             )}
+
             {loading ? (
                 <p className='text-second text-base text-center'>
                     {`${getNumberOfOption()}`}
@@ -78,6 +81,7 @@ function FormPortfolio1(props) {
                     Loading...
                 </p>
             )}
+
             <div className='form-content flex max-w-1152'>
                 {loading ? (portfolio.map((item, index) => (
                     <FormPortfolioItem1 key={index} dataItem={item} on />
@@ -87,6 +91,16 @@ function FormPortfolio1(props) {
                     </div>
                 )}            
             </div>
+
+            {/* Writing a special case of sending empty dataItem to FormPortfolioItem1, if length of potfolio is 0 */}
+            {/* Length of portfolio is explicitly set to zero if no data is received from backend API */}
+            {/* As the backend API is not working so above is the case now */}
+            <div className='form-content flex max-w-1152'>
+                {(loading && portfolio.length === 0) && (
+                    <FormPortfolioItem1 dataItem={{}} on />
+                )}
+            </div>
+
         </div>
     );
 }

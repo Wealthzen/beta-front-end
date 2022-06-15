@@ -26,7 +26,8 @@ function FormPortfolioRate(props) {
                 </tr>
             
                 {
-                    selectedPortfolio.items.map((item, index) => {
+                    // If selectedPortfolio is null, then the following code will not be executed because "?" operator is added
+                    selectedPortfolio?.items?.map((item, index) => {
                         return (
                             <tr key={index}>
                                 <td className='py-17 pb-5 pb-5 border-t border-input-border text-table text-14 leading-19 font-semibold'>{item.asset_ticker}</td>

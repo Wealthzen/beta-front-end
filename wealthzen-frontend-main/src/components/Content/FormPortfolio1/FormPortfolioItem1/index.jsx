@@ -63,7 +63,7 @@ function FormPortfolioItem1(props) {
             <div className='max-h-420 before-content border pr-100 pl-92 text-center border-porfolio bg-porfolio rounded-lg h-full pt-40 flex flex-col justify-between'>
                 <div>
                     <h3 className='text-2xl leading-8 font-semibold pb-4 leading-p'>
-                        {dataItem.name}
+                        {dataItem?.name}
                     </h3>
                     <p className='text-sm leading-18'></p>
                 </div>
@@ -72,7 +72,7 @@ function FormPortfolioItem1(props) {
                     to='#'
                     className='mb-35 text-sm text-pink underline font-semibold leading-h2'
                 >
-                    Reveal {dataItem.name}
+                    Reveal {dataItem?.name}
                 </Link>
             </div>
 
@@ -87,7 +87,7 @@ function FormPortfolioItem1(props) {
                     ></i>
                 </p>
                 <ul className='table max-w-full w-full px-12'>
-                    {dataItem.items.map((item, index) => (
+                    {dataItem?.items?.map((item, index) => (
                         <PortfolioTable
                             key={index}
                             items={item}
@@ -128,7 +128,7 @@ function FormPortfolioItem1(props) {
                         onClick={handleChangePhase}
                         className='button text-sm font-semibold px-6 py-2 mt-6 bg-pink text-white leading-h2 rounded-input'
                     >
-                        I want to {dataItem.name}
+                        I want to {dataItem?.name}
                         <i className='iconw-arrow-right text-icon ml-2.5 align-middle'></i>
                     </button>
                 </div>
