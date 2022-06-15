@@ -85,14 +85,27 @@ function Content(props) {
             // question.data.reverse(); //changing the order of questions
 
             //swapping questions in particular
-            let ch = question.data[5]
-            question.data[5] = question.data[6]
-            question.data[6] = ch
+            // let ch = question.data[5]
+            // question.data[5] = question.data[6]
+            // question.data[6] = ch
+
+            //Taking the age by ,35 or >35 options
+            question.data[1].type = "YES_NO"
+            question.data[1].inputPlaceholder = ""
+            question.data[1].button = ""
+
+            let changedchoise = [{text: "<35",value: "True",imageUrl: "" , investmentAttributes: null, order: 1,portfolioAttributes:null},
+            {text: ">35",value: "False",imageUrl: "" , investmentAttributes: null, order: 2,portfolioAttributes:null}]
+
+            question.data[1].choices = changedchoise
+
+            question.data.splice(3,1) //removing the "care about" question.
 
             //changing the question itsellf.
-            question.data[0].question = "What's your name?"
-            question.data[1].question = "What's your age?"
-            //console.log(question);
+            // question.data[0].question = "What's your name?"
+            // question.data[1].question = "What's your age?"
+
+            console.log(question);
 
             dispatch(setQuestion(question.data));
             dispatch(updateQuestion(firstQuestion));
