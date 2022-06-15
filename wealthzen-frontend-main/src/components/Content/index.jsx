@@ -82,6 +82,18 @@ function Content(props) {
 
             const firstQuestion = question.data[0];
 
+            // question.data.reverse(); //changing the order of questions
+
+            //swapping questions in particular
+            let ch = question.data[5]
+            question.data[5] = question.data[6]
+            question.data[6] = ch
+
+            //changing the question itsellf.
+            question.data[0].question = "What's your name?"
+            question.data[1].question = "What's your age?"
+            //console.log(question);
+
             dispatch(setQuestion(question.data));
             dispatch(updateQuestion(firstQuestion));
         };
