@@ -47,8 +47,8 @@ export const checkPreviousQuestion = (questions, answers, latestAnswer) => {
  *   check answer existed
  *   return @string
  */
-export const checkAnswerExisted = (currentAnswer, allAnswer) => {
-    var index = allAnswer.findIndex((x) => x.questionId === currentAnswer.id);
+export const checkAnswerExisted = (currentQuestion, allAnswer) => {
+    var index = allAnswer.findIndex((x) => x.questionId === currentQuestion.id);
     return index === -1 ? '' : allAnswer[index].answerValue;
 };
 

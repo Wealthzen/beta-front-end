@@ -119,8 +119,8 @@ export const getBaseOptimizerUrl = () => {
 -   currentQuestion
     -   Represents the active question displayed on the screen
 -   user
-    -   Represents the Current User
-    -   Get the values from the user user input
+    -   Represents the Current User details
+    -   Get the values from the user input
         -   name
         -   email
         -   password
@@ -131,8 +131,38 @@ export const getBaseOptimizerUrl = () => {
     -   arrau of questions(objects)
 -   investment
 -   currentAnswers
+    -   Represents the current answers selected by the user at that instance
 -   currentPhase
     -   Represents the current phase of the application
     -   value is updated based on the current question which has an attribute called phase
 -   portfolioOptions
 -   selectedPortfolio
+
+## Questions Info
+
+### phases of questions (coming from backend API)
+
+-   1
+-   3
+-   5
+-   6
+
+### phases of questions (explicitly set by frontent)
+
+-   2
+    -   for showing FORM_PORTFOLIO_1
+    -   Static page displays information sent from the optimiser api based on the previous questions
+-   4
+    -   for showing FORM_PORTFOLIO_2
+    -   Static page displays information sent from the optimiser api based on the previous questions
+
+### types of questions (coming from backend API)
+
+-   TEXT_INPUT
+    -   Takes basic text input
+-   PICK_ONE_3, PICK_ONE_2, PICK_ONE_1, YES_NO
+    -   Multiple Choice Question (Select One Answer)
+-   READ_ONLY
+    -   Static Page shows some text and automatically moves to the next question if button input is not given
+-   FORM_PORTFOLIO_3
+    -   Static page displays informations sent from the optimiser api based on the previous questions

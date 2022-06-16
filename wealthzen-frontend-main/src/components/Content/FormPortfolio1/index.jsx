@@ -60,8 +60,6 @@ function FormPortfolio1(props) {
 
     }
 
-    console.log(loading);
-
     return (
         <div
             className={`form-style form-portfolio w-full form-style-${data.style}`}
@@ -86,8 +84,8 @@ function FormPortfolio1(props) {
                 {loading ? (portfolio.map((item, index) => (
                     <FormPortfolioItem1 key={index} dataItem={item} on />
                 ))) : (
-                    <div class="flex items-center justify-center min-w-full mt-8">
-                        <div class="w-20 h-20 border-l-2 border-rose-500 rounded-full animate-spin"></div>
+                    <div className="flex items-center justify-center min-w-full mt-8">
+                        <div className="w-20 h-20 border-l-2 border-rose-500 rounded-full animate-spin"></div>
                     </div>
                 )}            
             </div>

@@ -1,0 +1,39 @@
+PUT https://wztestbe.ga/api/questions/2
+Accept: application/json
+Content-Type: application/json
+
+{
+    "type": "PICK_ONE_3",
+    "question": "How old are you?",
+    "top_description": "",
+    "top_desc_href": "",
+    "bottom_description": "",
+    "bottom_desc_href": "",
+    "button": "Continue",
+    "phase": 1,
+    "order": 20,
+    "choices": [
+        {
+            "text": "<35",
+            "imageUrl": "",
+            "value": "A",
+            "order": 1,
+            "portfolioAttributes": null,
+            "investmentAttributes": null
+        },
+        {
+            "text": ">35",
+            "imageUrl": "",
+            "value": "B",
+            "order": 2,
+            "portfolioAttributes": null,
+            "investmentAttributes": null
+        }
+    ],
+    "detailedDesc": null,
+    "input_placeholder": "",
+    "user_prop": "age",
+    "imageUrl": "",
+    "buttonAction": "",
+    "skipLogic": null
+}
