@@ -92,49 +92,6 @@
         "skipLogic": null
     },
     {
-        "type": "PICK_ONE_2",
-        "question": "",
-        "top_description": "",
-        "top_desc_href": "",
-        "bottom_description": "",
-        "bottom_desc_href": "",
-        "button": "Continue",
-        "phase": 1,
-        "order": 40,
-        "choices": [
-            {
-                "text": "I care about my return target",
-                "imageUrl": "",
-                "value": "A",
-                "order": 1,
-                "portfolioAttributes": {
-                    "riskReturnChoice": "returns"
-                },
-                "investmentAttributes": null
-            },
-            {
-                "text": "I care about managing risk",
-                "imageUrl": "",
-                "value": "B",
-                "order": 2,
-                "portfolioAttributes": {
-                    "riskReturnChoice": "risk"
-                },
-                "investmentAttributes": null
-            }
-        ],
-        "detailedDesc": null,
-        "input_placeholder": "",
-        "user_prop": "",
-        "imageUrl": "",
-        "buttonAction": "",
-        "skipLogic": {
-            "type": "Answer",
-            "questionId": 3,
-            "value": "A"
-        }
-    },
-    {
         "type": "PICK_ONE_3",
         "question": "This money is invested for",
         "top_description": "",
