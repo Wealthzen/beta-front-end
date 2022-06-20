@@ -15,7 +15,8 @@ class QuestionController extends APIController
      * @param QuestionServiceImpl $questionService
      *
      */
-    public function __construct(QuestionServiceImpl $questionService){
+    public function __construct(QuestionServiceImpl $questionService)
+    {
         return parent::__construct($questionService);
     }
 

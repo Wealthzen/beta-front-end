@@ -152,14 +152,15 @@ function FormPortfolio3(props) {
                                     src='/images/img-bag.png'
                                     alt=''
                                 />
+                                {/* As the Backend API is not working it returns empty portfolio msg so added ? opeartor for optional feature */}
                                 <h5 className='font-semibold text-table mb-4'>
-                                    {portfolioMsg.vol_msg.vol_msg_header}
+                                    {portfolioMsg?.vol_msg?.vol_msg_header}
                                 </h5>
                                 <p className='text-sm leading-18 text-second mb-2'>
-                                    {portfolioMsg.vol_msg.vol_msg_body}
+                                    {portfolioMsg?.vol_msg?.vol_msg_body}
                                 </p>
                                 <ul className='text-sm leading-18 text-second list-disc ml-7'>
-                                    {portfolioMsg.vol_msg.vol_msg_bullets
+                                    {portfolioMsg?.vol_msg?.vol_msg_bullets
                                         .split(';')
                                         .map((txt) => (
                                             <li>{txt}</li>
@@ -172,14 +173,15 @@ function FormPortfolio3(props) {
                                     src='/images/img-down.png'
                                     alt=''
                                 />
+                                {/* As the Backend API is not working it returns empty portfolio msg so added ? opeartor for optional feature */}
                                 <h5 className='font-semibold text-table mb-4'>
-                                    {portfolioMsg.return_msg.risk_msg_header}
+                                    {portfolioMsg?.return_msg?.risk_msg_header}
                                 </h5>
                                 <p className='text-sm leading-18 text-second mb-2'>
-                                    {portfolioMsg.return_msg.risk_msg_body}
+                                    {portfolioMsg?.return_msg?.risk_msg_body}
                                 </p>
                                 <ul className='text-sm leading-18 text-second list-disc ml-7'>
-                                    {portfolioMsg.return_msg.risk_msg_bullets
+                                    {portfolioMsg?.return_msg?.risk_msg_bullets
                                         .split(';')
                                         .map((txt) => (
                                             <li>{txt}</li>
@@ -192,20 +194,20 @@ function FormPortfolio3(props) {
                                     src='/images/img-clock.png'
                                     alt=''
                                 />
+                                {/* As the Backend API is not working it returns empty portfolio msg so added ? opeartor for optional feature */}
+
                                 <h5 className='font-semibold text-table mb-4'>
                                     {
-                                        portfolioMsg.time_to_return_msg
-                                            .time_to_return_msg_header
+                                        portfolioMsg?.time_to_return_msg?.time_to_return_msg_header
                                     }
                                 </h5>
                                 <p className='text-sm leading-18 text-second mb-2'>
                                     {
-                                        portfolioMsg.time_to_return_msg
-                                            .time_to_return_msg_body
+                                        portfolioMsg?.time_to_return_msg?.time_to_return_msg_body
                                     }
                                 </p>
                                 <ul className='text-sm leading-18 text-second list-disc ml-7'>
-                                    {portfolioMsg.time_to_return_msg.time_to_return_msg_bullets
+                                    {portfolioMsg?.time_to_return_msg?.time_to_return_msg_bullets
                                         .split(';')
                                         .map((txt) => (
                                             <li>{txt}</li>
@@ -214,8 +216,9 @@ function FormPortfolio3(props) {
                             </div>
                         </div>
                     </div>
+                    {/* As the Backend API is not working it returns empty portfolio msg so added ? opeartor for optional feature */}
                     <p className='max-w-936 w-full mx-auto mt-12'>
-                        {portfolioMsg.thematic_msg.thematic_investing_msg}
+                        {portfolioMsg?.thematic_msg?.thematic_investing_msg}
                     </p>
                     <div className='section-2 max-w-936 w-full mx-auto mt-12'>
                         <div className='flex mb-12'>
@@ -229,14 +232,12 @@ function FormPortfolio3(props) {
                             <div>
                                 <h3 className='font-semibold leading-22 text-black mb-22'>
                                     {
-                                        portfolioMsg.thematic_msg
-                                            .thematic_investing_point1_msg_header
+                                        portfolioMsg?.thematic_msg?.thematic_investing_point1_msg_header
                                     }
                                 </h3>
                                 <p className='text-sm leading-18 text-second mb-2'>
                                     {
-                                        portfolioMsg.thematic_msg
-                                            .thematic_investing_point1_msg_body
+                                        portfolioMsg?.thematic_msg?.thematic_investing_point1_msg_body
                                     }
                                 </p>
                                 {/* <ul className='text-sm leading-18 text-second list-disc ml-6'>
@@ -255,16 +256,15 @@ function FormPortfolio3(props) {
                                 />
                             </figure>
                             <div>
+                                {/* As the Backend API is not working it returns empty portfolio msg so added ? opeartor for optional feature */}
                                 <h3 className='font-semibold leading-22 text-black mb-22'>
                                     {
-                                        portfolioMsg.thematic_msg
-                                            .thematic_investing_point2_msg_header
+                                        portfolioMsg?.thematic_msg?.thematic_investing_point2_msg_header
                                     }
                                 </h3>
                                 <p className='text-sm leading-18 text-second mb-2'>
                                     {
-                                        portfolioMsg.thematic_msg
-                                            .thematic_investing_point2_msg_body
+                                        portfolioMsg?.thematic_msg?.thematic_investing_point2_msg_body
                                     }
                                 </p>
                                 {/* <ul className='text-sm leading-18 text-second list-disc ml-6'>
@@ -283,16 +283,15 @@ function FormPortfolio3(props) {
                                 />
                             </figure>
                             <div>
+                                {/* As the Backend API is not working it returns empty portfolio msg so added ? opeartor for optional feature */}
                                 <h3 className='font-semibold leading-22 text-black mb-22'>
                                     {
-                                        portfolioMsg.thematic_msg
-                                            .thematic_investing_point3_msg_header
+                                        portfolioMsg?.thematic_msg?.thematic_investing_point3_msg_header
                                     }
                                 </h3>
                                 <p className='text-sm leading-18 text-second mb-2'>
                                     {
-                                        portfolioMsg.thematic_msg
-                                            .thematic_investing_point3_msg_body
+                                        portfolioMsg?.thematic_msg?.thematic_investing_point3_msg_body
                                     }
                                 </p>
                                 {/* <ul className='text-sm leading-18 text-second list-disc ml-6'>
