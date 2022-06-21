@@ -372,7 +372,8 @@ export const getBaseUrl = () => {
         // baseURL = 'http://192.53.115.165:5301/';
         baseURL = 'https://wztestbe.ga/';
     } else {
-        baseURL = window.location.href;
+        baseURL = 'https://wztestbe.ga/';
+//         baseURL = window.location.href;
     }
 
     return baseURL;
