@@ -216,9 +216,9 @@ function Footer(props) {
                         <ul className='flex gap-2 md:gap-3'>{phase5Dot()}</ul>
                         {phase6El()}
                     </div>
-                    <div className='footer-right mx-auto xl:mx-0 flex items-center'>
+                    {/* <div className='footer-right mx-auto xl:mx-0 flex items-center'>
                         <Investment allAnswer={allAnswer} />
-                    </div>
+                    </div> */}
                 </div>
             )}
         </footer>

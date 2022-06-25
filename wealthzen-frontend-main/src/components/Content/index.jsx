@@ -78,6 +78,7 @@ function Content(props) {
     useEffect(() => {
         const fetchQuestion = async () => {
             const question = await questionApi.getAll();
+            // console.log(question);
             const firstQuestion = question.data[0];
 
             dispatch(setQuestion(question.data));
@@ -161,7 +162,8 @@ function Content(props) {
                 currentQuestion.type === 'SUCCESSFULLY' ||
                 currentQuestion.type === 'FORM_PORTFOLIO_3' ||
                 currentPhase === 2 ||
-                currentPhase === 4
+                currentPhase === 4 ||
+                currentPhase === 1
                     ? 'h-auto'
                     : 'h-75.887'
             }`}
