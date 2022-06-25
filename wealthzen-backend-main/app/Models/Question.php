@@ -17,17 +17,17 @@ class Question extends Model
     protected $fillable = [
         'type',
         'question',
-        'description',
-        'detailed_desc',
-        'input_placeholder',
-        'user_prop',
-        'image_url',
         'button',
-        'button_action',
         'phase',
         'order',
         'choices',
+        'input_placeholder',
+        'user_prop',
+        'image_url',
+        'button_action',
         'skip_logic',
+        'description',
+        'detailed_desc',
     ];
 
     /**

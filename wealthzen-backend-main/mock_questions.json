@@ -18,7 +18,7 @@
         "skipLogic": null
     },
     {
-        "type": "TEXT_INPUT",
+        "type": "PICK_ONE_3",
         "question": "How old are you?",
         "top_description": "",
         "top_desc_href": "",
@@ -27,9 +27,26 @@
         "button": "Continue",
         "phase": 1,
         "order": 20,
-        "choices": null,
+        "choices": [
+            {
+                "text": "<35",
+                "imageUrl": "",
+                "value": "A",
+                "order": 1,
+                "portfolioAttributes": null,
+                "investmentAttributes": null
+            },
+            {
+                "text": ">35",
+                "imageUrl": "",
+                "value": "B",
+                "order": 2,
+                "portfolioAttributes": null,
+                "investmentAttributes": null
+            }
+        ],
         "detailedDesc": null,
-        "input_placeholder": "E.g. 20",
+        "input_placeholder": "",
         "user_prop": "age",
         "imageUrl": "",
         "buttonAction": "",
@@ -73,49 +90,6 @@
         "imageUrl": "",
         "buttonAction": "",
         "skipLogic": null
-    },
-    {
-        "type": "PICK_ONE_2",
-        "question": "",
-        "top_description": "",
-        "top_desc_href": "",
-        "bottom_description": "",
-        "bottom_desc_href": "",
-        "button": "Continue",
-        "phase": 1,
-        "order": 40,
-        "choices": [
-            {
-                "text": "I care about my return target",
-                "imageUrl": "",
-                "value": "A",
-                "order": 1,
-                "portfolioAttributes": {
-                    "riskReturnChoice": "returns"
-                },
-                "investmentAttributes": null
-            },
-            {
-                "text": "I care about managing risk",
-                "imageUrl": "",
-                "value": "B",
-                "order": 2,
-                "portfolioAttributes": {
-                    "riskReturnChoice": "risk"
-                },
-                "investmentAttributes": null
-            }
-        ],
-        "detailedDesc": null,
-        "input_placeholder": "",
-        "user_prop": "",
-        "imageUrl": "",
-        "buttonAction": "",
-        "skipLogic": {
-            "type": "Answer",
-            "questionId": 3,
-            "value": "A"
-        }
     },
     {
         "type": "PICK_ONE_3",
@@ -246,8 +220,8 @@
                 "imageUrl": "",
                 "value": "A",
                 "order": 1,
-                "portfolioAttributes": { 
-                    "newsSelection": "market news" 
+                "portfolioAttributes": {
+                    "newsSelection": "market news"
                 },
                 "investmentAttributes": null
             },
@@ -486,7 +460,7 @@
                 "value": "True",
                 "order": 1,
                 "portfolioAttributes": {
-                  "accreditedInvestor": "Yes"
+                    "accreditedInvestor": "Yes"
                 },
                 "investmentAttributes": null
             },
@@ -496,7 +470,7 @@
                 "value": "False",
                 "order": 2,
                 "portfolioAttributes": {
-                  "accreditedInvestor": "No"
+                    "accreditedInvestor": "No"
                 },
                 "investmentAttributes": null
             }
@@ -525,7 +499,7 @@
                 "value": "A",
                 "order": 1,
                 "portfolioAttributes": {
-                  "addAlternativeInvestments": "PE"
+                    "addAlternativeInvestments": "PE"
                 },
                 "investmentAttributes": null
             },
@@ -535,20 +509,20 @@
                 "value": "B",
                 "order": 2,
                 "portfolioAttributes": {
-                  "addAlternativeInvestments": "VC"
+                    "addAlternativeInvestments": "VC"
                 },
                 "investmentAttributes": null
             },
             {
-              "text": "Crypto",
-              "imageUrl": "",
-              "value": "C",
-              "order": 2,
-              "portfolioAttributes": {
-                "addAlternativeInvestments": "Crypto"
-              },
-              "investmentAttributes": null
-          }
+                "text": "Crypto",
+                "imageUrl": "",
+                "value": "C",
+                "order": 2,
+                "portfolioAttributes": {
+                    "addAlternativeInvestments": "Crypto"
+                },
+                "investmentAttributes": null
+            }
         ],
         "detailedDesc": null,
         "input_placeholder": "",
@@ -578,7 +552,7 @@
                 "value": "A",
                 "order": 1,
                 "portfolioAttributes": {
-                  "smoothBumpy": "smooth"
+                    "smoothBumpy": "smooth"
                 },
                 "investmentAttributes": {
                     "volatility": -1
@@ -590,7 +564,7 @@
                 "value": "B",
                 "order": 2,
                 "portfolioAttributes": {
-                  "smoothBumpy": "bumpy"
+                    "smoothBumpy": "bumpy"
                 },
                 "investmentAttributes": {
                     "volatility": 1

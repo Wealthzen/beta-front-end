@@ -47,8 +47,8 @@ export const checkPreviousQuestion = (questions, answers, latestAnswer) => {
  *   check answer existed
  *   return @string
  */
-export const checkAnswerExisted = (currentAnswer, allAnswer) => {
-    var index = allAnswer.findIndex((x) => x.questionId === currentAnswer.id);
+export const checkAnswerExisted = (currentQuestion, allAnswer) => {
+    var index = allAnswer.findIndex((x) => x.questionId === currentQuestion.id);
     return index === -1 ? '' : allAnswer[index].answerValue;
 };
 
@@ -372,7 +372,8 @@ export const getBaseUrl = () => {
         // baseURL = 'http://192.53.115.165:5301/';
         baseURL = 'https://wztestbe.ga/';
     } else {
-        baseURL = window.location.href;
+        baseURL = 'https://wztestbe.ga/';
+//         baseURL = window.location.href;
     }
 
     return baseURL;

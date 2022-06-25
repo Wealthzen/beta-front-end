@@ -52,6 +52,7 @@ function FormPortfolio2(props) {
                 );
                 dispatch(selectPortfolio(portfolioOptions[0]))
                 setPortfolioMsg(msg);
+                console.log("Dhamaresh Says", msg)
                 setLoading(false);
             }
         };
@@ -83,6 +84,7 @@ function FormPortfolio2(props) {
             setRisk('Med');
         }
     }, [selectedPortfolio])
+
 
     return (
         <div
@@ -126,7 +128,8 @@ function FormPortfolio2(props) {
                         </li>
                     </ul>
                     <p className='px-24 bg-primary text-white text-center leading-22 pt-45 pb-8 rounded-b-10  mt-top-16'>
-                        {portfolioMsg.thematic_msg.thematic_investing_msg}
+                        {/* potfolioMsg is empty as there is network error because backend api is not working so I added ? operator for optional property */}
+                        {portfolioMsg?.thematic_msg?.thematic_investing_msg}
                     </p>
                     <div className='continue flex items-center justify-between pt-8'>
                         <p className='text-sm leading-19 font-semibold'>

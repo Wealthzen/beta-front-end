@@ -1,17 +1,16 @@
 ## Setup an instance
 
-Image: ubuntu 
+Image: ubuntu
 
 Security Group: Allow HTTP, HTTPS
 
-## Create a domian 
+## Create a domian
 
 Create a free domain at freenom (wzenfe.ga/)
-Add DNS records to map the web address to the  EC2 server
+Add DNS records to map the web address to the EC2 server
 
 Name <<blank>> Type A, TTL 3600, Target <<ec2 public ip>>
 Name <<WWW>> Type A, TTL 3600, Target <<ec2 public ip>>
-
 
 ## Install Stuff
 
@@ -22,7 +21,7 @@ sudo snap install core; sudo snap refresh core
 sudo snap install --classic certbot
 /* The objective of Certbot, Let's Encrypt, and the ACME (Automated Certificate Management Environment) protocol is to make it possible to set up an HTTPS server and have it automatically obtain a browser-trusted certificate, without any human intervention. This is accomplished by running a certificate management agent on the web server.
 https://snapcraft.io/install/certbot/ubuntu
-*/ 
+*/
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 /*Create a soft link in /usr/bin folder*/
 
@@ -69,13 +68,14 @@ sudo chown -R ubuntu /var/www/html
 
 ## Access the Site
 
-Point the browser to <<wzenfe.ga>> 
+Point the browser to <<wzenfe.ga>>
 
 # wealthzen-frontend
 
 `src > app > utils.js`
 
-#### Change the IPv4 address and port number 
+#### Change the IPv4 address and port number
+
 From my understanding, <br>
 backend is on one instance <br>
 and optimizer is on another instance.
@@ -111,3 +111,58 @@ export const getBaseOptimizerUrl = () => {
     return baseURL;
 };
 ```
+
+# Wealthzen-frontend
+
+## State
+
+-   currentQuestion
+    -   Represents the active question displayed on the screen
+-   user
+    -   Represents the Current User details
+    -   Get the values from the user input
+        -   name
+        -   email
+        -   password
+        -   age
+-   questions
+    -   Represents the list of all questions
+    -   Get these values from the API
+    -   arrau of questions(objects)
+-   investment
+-   currentAnswers
+    -   Represents the current answers selected by the user at that instance
+-   currentPhase
+    -   Represents the current phase of the application
+    -   value is updated based on the current question which has an attribute called phase
+-   portfolioOptions
+-   selectedPortfolio
+
+## Questions Info
+
+### phases of questions (coming from backend API)
+
+-   1
+-   3
+-   5
+-   6
+
+### phases of questions (explicitly set by frontent)
+
+-   2
+    -   for showing FORM_PORTFOLIO_1
+    -   Static page displays information sent from the optimiser api based on the previous questions
+-   4
+    -   for showing FORM_PORTFOLIO_2
+    -   Static page displays information sent from the optimiser api based on the previous questions
+
+### types of questions (coming from backend API)
+
+-   TEXT_INPUT
+    -   Takes basic text input
+-   PICK_ONE_3, PICK_ONE_2, PICK_ONE_1, YES_NO
+    -   Multiple Choice Question (Select One Answer)
+-   READ_ONLY
+    -   Static Page shows some text and automatically moves to the next question if button input is not given
+-   FORM_PORTFOLIO_3
+    -   Static page displays informations sent from the optimiser api based on the previous questions

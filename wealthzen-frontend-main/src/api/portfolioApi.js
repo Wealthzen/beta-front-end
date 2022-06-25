@@ -124,6 +124,8 @@ const portfolioApi = {
             return [groupPortfolio(response.data.portfolio), response.data.msg];
         } catch (e) {
             console.error(e);
+            // Here Backend API is not working working So simply I assume to return an empty list
+            return [groupPortfolio([]), e.message];
         }
     },
 };
