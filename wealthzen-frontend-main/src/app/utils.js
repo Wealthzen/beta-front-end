@@ -364,20 +364,15 @@ export const getPortfolioOptions = (formData) => {
 
 export const getBaseUrl = () => {
     let baseURL;
-
-    if (
-        window.location.hostname === 'localhost' ||
-        window.location.hostname === '127.0.0.1'
-    ) {
-        // baseURL = 'http://192.53.115.165:5301/';
-        baseURL = 'https://wztestbe.ga/';
+    if (window.location.href.split(':')[1].substring(2) === 'localhost' || window.location.href.split(':')[1].substring(2) === '127.0.0.1') {
+        baseURL = 'http://127.0.0.1:5555/';
     } else {
-        baseURL = 'https://wztestbe.ga/';
-//         baseURL = window.location.href;
+        baseURL = window.location.href;
     }
 
     return baseURL;
 };
+
 
 export const getBaseOptimizerUrl = () => {
     let baseURL;
