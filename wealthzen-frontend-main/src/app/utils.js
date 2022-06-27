@@ -8,7 +8,7 @@ import axiosP from 'axios';
  */
 export const checkAvailableQuestion = (question, latestAnswer, listAnswer) => {
     // NEW CODE
-    var index = question.findIndex((x) => x.id === latestAnswer);
+    var index = question.findIndex((x) => x.order === latestAnswer);
 
     for (let i = index + 1; i <= question.length; i++) {
         if (question[i] === undefined) {
@@ -20,6 +20,49 @@ export const checkAvailableQuestion = (question, latestAnswer, listAnswer) => {
         }
     }
 };
+
+export const getLastQuestionId = (allQuestions) => {
+    let lastQuestionId = allQuestions.length;
+    allQuestions.forEach(question => {
+        if (question.order > lastQuestionId) {
+            lastQuestionId = question.order;
+        }
+    })
+
+    return lastQuestionId;
+}
+
+
+/*
+* get Next Question (checkAvailableQuestion Rewritten By Dhamareshwar)
+* return @object
+*/
+export const getNextQuestion = (allQuestions, currentQuestionId) => {
+    const lastQuestionId = getLastQuestionId(allQuestions);
+    let nextQuestionId = currentQuestionId + 1;
+
+    let nextQuestion = allQuestions.find(question => question.order === nextQuestionId);
+
+    if (nextQuestion === undefined && nextQuestionId < lastQuestionId) {
+        return getNextQuestion(allQuestions, nextQuestionId);
+    }
+
+    return nextQuestion ? nextQuestion : 'successfully';
+};
+
+export const getPreviousQuestion = (allQuestions, currentQuestionId) => {
+    let previousQuestionId = currentQuestionId - 1;
+
+    let previousQuestion = allQuestions.find(question => question.order === previousQuestionId);
+
+    if (previousQuestion === undefined && previousQuestionId > 0) {
+        return getPreviousQuestion(allQuestions, previousQuestionId);
+    }
+
+    return previousQuestion ? previousQuestion : null;
+}
+
+
 
 /*
  *   get previous question
@@ -48,8 +91,9 @@ export const checkPreviousQuestion = (questions, answers, latestAnswer) => {
  *   return @string
  */
 export const checkAnswerExisted = (currentQuestion, allAnswer) => {
-    var index = allAnswer.findIndex((x) => x.questionId === currentQuestion.id);
-    return index === -1 ? '' : allAnswer[index].answerValue;
+    var index = allAnswer.findIndex((x) => x.questionId === currentQuestion.order);
+    console.log(allAnswer[index]);
+    return index === -1 ? '' : allAnswer[index].answer ? allAnswer[index].answer : '';
 };
 
 /*
@@ -117,18 +161,21 @@ export const checkInputValidate = (type, value) => {
  *   return @array of object
  */
 export const checkListCurrentAnswer = (allAnswer, currentAnswer) => {
-    var index = allAnswer.findIndex(
-        (x) => x.questionId === currentAnswer.questionId
-    );
-    // if not exist in array
-    if (index === -1) {
-        return [...allAnswer, currentAnswer];
-    }
-    // if index existed in array
-    else {
-        var newAnswer = allAnswer.slice(0, index);
-        return [...newAnswer, currentAnswer];
-    }
+    let filteredAnswers = allAnswer.filter(answer => answer.questionId !== currentAnswer.questionId);
+    filteredAnswers.push(currentAnswer);
+    return filteredAnswers;
+    // var index = allAnswer.findIndex(
+    //     (x) => x.questionId === currentAnswer.questionId
+    // );
+    // // if not exist in array
+    // if (index === -1) {
+    //     return [...allAnswer, currentAnswer];
+    // }
+    // // if index existed in array
+    // else {
+    //     var newAnswer = allAnswer.slice(0, index);
+    //     return [...newAnswer, currentAnswer];
+    // }
 };
 
 /*
@@ -365,7 +412,7 @@ export const getPortfolioOptions = (formData) => {
 export const getBaseUrl = () => {
     let baseURL;
     if (window.location.href.split(':')[1].substring(2) === 'localhost' || window.location.href.split(':')[1].substring(2) === '127.0.0.1') {
-        baseURL = 'http://127.0.0.1:5555/';
+        baseURL = 'http://127.0.0.1:5555/api';
     } else {
         baseURL = window.location.href;
     }

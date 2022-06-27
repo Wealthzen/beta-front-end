@@ -10,6 +10,7 @@ import {
     checkAvailableQuestion,
     checkInputValidate,
     checkListCurrentAnswer,
+    getNextQuestion,
     updateNextPhase,
     uploadResults,
 } from '../../../app/utils';
@@ -42,7 +43,7 @@ function FormInput(props) {
     useEffect(() => {
         const updateUserInput = () => {
             var selectedValue = checkAnswerExisted(data, allAnswer);
-            setUserInput(selectedValue);
+            setUserInput(selectedValue.value ? selectedValue.value : '');
             // setSelected(selectedValue);
             setInputValidate(true);
         };
@@ -54,7 +55,7 @@ function FormInput(props) {
     const handleChangeValue = (e) => {
         // setSelected('');
         setUserInput(e.target.value);
-        var validate = checkInputValidate(data.userProp, e.target.value);
+        var validate = checkInputValidate(data.user_prop, e.target.value);
         setInputValidate(validate);
     };
 
@@ -63,12 +64,16 @@ function FormInput(props) {
         // set current answer
         const answer = {
             questionId: questionId,
+            answer: {
+                value: userInput,
+            },
             questionText: data.question,
             answerValue: userInput,
             answerText: '',
             portfolioAttributes: '',
             investment: null,
         };
+
         const newCurrentAnswer = checkListCurrentAnswer(allAnswer, answer);
         dispath(setCurrentAnswer(newCurrentAnswer));
 
@@ -84,15 +89,15 @@ function FormInput(props) {
         // validate
         if (inputValidate !== true || userInput === '') return false;
 
-        const questionId = data.id;
-        var index = allQuestion.findIndex((x) => x.id === questionId);
-        const nextQuestion = checkAvailableQuestion(allQuestion, questionId);
+        const questionId = data.order;
+        const nextQuestion = getNextQuestion(allQuestion, data.order);
+        // const nextQuestion = checkAvailableQuestion(allQuestion, questionId);
 
         updateNextPhase(dispath, setPhase, nextQuestion, currentPhase);
 
         // set user data
         var dataInput = () => {
-            switch (data.userProp) {
+            switch (data.user_prop) {
                 case 'name':
                     return { ...userData, name: userInput };
                 case 'email':
@@ -107,47 +112,23 @@ function FormInput(props) {
         };
         dispath(setUser(dataInput()));
 
-        // hi user
-        if (index === 0) {
-            const hello = {
-                type: 'FORM_HELLO',
+
+        if (nextQuestion === 'successfully') {
+            const successfully = {
+                type: 'SUCCESSFULLY',
+                phase: 6,
             };
 
-            dispath(updateQuestion(hello));
+            // post user data to api
+            uploadResults(userData, allAnswer);
 
-            // force next question
-            setTimeout(() => {
-                forceNextQuestion(questionId, nextQuestion);
-            }, 1000);
-        }
-        // dispath next question
-        else {
-            if (nextQuestion === 'successfully') {
-                const successfully = {
-                    type: 'SUCCESSFULLY',
-                    phase: 6,
-                };
-
-                // post user data to api
-                uploadResults(userData, allAnswer);
-
-                dispath(updateQuestion(successfully));
-            } else {
-                forceNextQuestion(questionId, nextQuestion);
-            }
-        }
-    };
-    const styleDesc = () => {
-        let classDescription = '';
-
-        if (data.description) {
-            classDescription = 'pt-2 text-second text-base';
+            dispath(updateQuestion(successfully));
         } else {
-            classDescription = 'hidden';
+            forceNextQuestion(questionId, nextQuestion);
         }
 
-        return classDescription;
     };
+
 
     const styleSubmit = () => {
         let classBtn = '';
@@ -162,24 +143,30 @@ function FormInput(props) {
 
     return (
         <div className='form-input text-center text-primary'>
-            {data.imageUrl && (
+            {data.image_url && (
                 <div className='content-center'>
-                    <img className='mx-auto' src={data.imageUrl} alt='' />
+                    <img className='mx-auto' src={data.image_url} alt='' />
                 </div>
             )}
+
             <h2 className='text-4xl font-semibold leading-49 px-3'>
                 {data.question}
             </h2>
-            <p className={`${styleDesc()}`}>{data.description}</p>
+
+            {data.description && (
+                <p className="pt-2 text-second text-base">{data.description}</p>
+            )}
+
             <p className='pt-8 flex flex-col items-center'>
                 <input
-                    type={data.userProp === 'password' ? 'password' : 'text'}
-                    name={data.userProp}
+                    type={data.user_prop === 'password' ? 'password' : 'email' ? 'email' : 'text'}
+                    name={data.user_prop}
                     value={userInput}
                     className='text-lg leading-8 py-2.5 px-3.5 max-w-xs w-full placeholder:text-gray rounded-lg border-1/2 border-pink bg-neutral-100 outline-0 focus-visible:none'
-                    placeholder={data.inputPlaceholder}
+                    placeholder={data.input_placeholder}
                     onChange={(e) => handleChangeValue(e)}
                 />
+
                 {inputValidate !== true && (
                     <span className='mt-2 text-red-500'>{inputValidate}</span>
                 )}

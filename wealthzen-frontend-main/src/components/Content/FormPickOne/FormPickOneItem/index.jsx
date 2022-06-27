@@ -42,6 +42,9 @@ function FormPickOneItem(props) {
         // set current answer
         const answer = {
             questionId: questionId,
+            answer: {
+                [dataItem.value]: dataItem.text
+            },
             questionText: questionText,
             answerValue: dataItem.value,
             answerText: dataItem.text,
@@ -113,8 +116,8 @@ function FormPickOneItem(props) {
                 className={`flex justify-center items-center flex-col border-1/2 border-pink cursor-pointer hover:shadow-focus ${dataStyles} ${selectedStyle}`}
             >
                 <input type='radio' name='single' className='hidden' />
-                {dataItem.imageUrl && (
-                    <img className='mx-auto' src={dataItem.imageUrl} alt='' />
+                {dataItem.image_url && (
+                    <img className='mx-auto' src={dataItem.image_url} alt='' />
                 )}
                 {dataItem.text && (
                     <p className={`${stylesP} mx-auto text-center text-lg`}>

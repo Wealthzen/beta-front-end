@@ -9,10 +9,11 @@ FormPickMultipleItem.propTypes = {
 FormPickMultipleItem.defaultProps = {
     dataItem: {},
     style: 1,
+    checked: false
 };
 
 function FormPickMultipleItem(props) {
-    const { dataItem, style } = props;
+    const { dataItem, style, checked,  setSelected, selected } = props;
 
     const figureStyle = () => {
         let classFigure = '';
@@ -67,10 +68,18 @@ function FormPickMultipleItem(props) {
         return classLabel;
     };
 
+    const handleClick = e => {
+        setSelected({
+            ...selected,
+            [dataItem.value]: !selected[dataItem.value]
+        })
+    }
+
     return (
         <div className={`${itemStyle()}`}>
             <figure
                 className={`flex h-full relative items-center px-8 py-6 border rounded-lg border-pink hover:shadow-focus active:bg-input cursor-pointer ${figureStyle()}`}
+                onClick={handleClick}
             >
                 <div className={`${inputStyle()}`}>
                     <label className={`box`}>
@@ -78,12 +87,14 @@ function FormPickMultipleItem(props) {
                             className={`radio-box cursor-pointer opacity-1 h-5 w-5 checked:bg-pink`}
                             type='checkbox'
                             name='multiple'
+                            checked={checked}
                         />
                         <span className='mark'></span>
                     </label>
                 </div>
 
-                {dataItem.imageUrl && <img src={dataItem.imageUrl} alt='' />}
+                {dataItem.image_url && <img src={dataItem.image_url} alt='' />}
+
                 {dataItem.text && (
                     <label
                         className={`sub-input ${labelStyle()} text-lg leading-p text-second`}

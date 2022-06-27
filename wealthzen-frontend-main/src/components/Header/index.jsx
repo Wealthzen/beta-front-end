@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateQuestion } from '../../app/currentQuestionSlice';
 import { setPhase } from '../../app/phaseSlice';
-import { checkPreviousQuestion, updatePrevPhase } from '../../app/utils';
+import { checkPreviousQuestion, getPreviousQuestion, updatePrevPhase } from '../../app/utils';
 
 Header.propTypes = {};
 
@@ -20,7 +20,7 @@ function Header(props) {
         // check if first question
         const updateIndex = () => {
             var index = allQuestion.findIndex(
-                (x) => x.id === currentQuestion.id
+                (x) => x.order === currentQuestion.order
             );
             setIndexQuestion(index);
         };
@@ -30,16 +30,20 @@ function Header(props) {
 
     // force previous question
     const handlePreviousQuestion = () => {
-        const previousQuestion = checkPreviousQuestion(
-            allQuestion,
-            allAnswer,
-            currentQuestion.id
-        );
-        var index = allQuestion.findIndex((x) => x.id === currentQuestion.id);
+        // const previousQuestion = checkPreviousQuestion(
+        //     allQuestion,
+        //     allAnswer,
+        //     currentQuestion.order
+        // );
+        const previousQuestion = getPreviousQuestion(allQuestion, currentQuestion.order);
 
-        updatePrevPhase(dispath, setPhase, allQuestion, currentPhase, index);
+        var index = allQuestion.findIndex((x) => x.order === currentQuestion.order);
 
-        dispath(updateQuestion(previousQuestion));
+        if (previousQuestion) {
+            updatePrevPhase(dispath, setPhase, allQuestion, currentPhase, index);
+            dispath(updateQuestion(previousQuestion));
+        }
+
     };
 
     return (

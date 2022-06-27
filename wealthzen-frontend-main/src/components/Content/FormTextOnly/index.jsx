@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateQuestion } from '../../../app/currentQuestionSlice';
-import { checkAvailableQuestion, uploadResults } from '../../../app/utils';
+import { checkAvailableQuestion, getNextQuestion, uploadResults } from '../../../app/utils';
 
 FormTextOnly.propTypes = {
     data: PropTypes.object,
@@ -37,8 +37,8 @@ function FormTextOnly(props) {
     };
 
     // force next question
-    const questionId = data.id;
-    const nextQuestion = checkAvailableQuestion(allQuestion, questionId);
+    const questionId = data.order;
+    const nextQuestion = getNextQuestion(allQuestion, questionId);
 
     // next question
     const handleNextQuestion = () => {
@@ -64,7 +64,7 @@ function FormTextOnly(props) {
         if (data.description) {
             classDescription = 'pt-2 text-second text-base';
         } else {
-            // classDescription = 'hidden';
+            classDescription = 'hidden';
         }
 
         return classDescription;
@@ -98,21 +98,27 @@ function FormTextOnly(props) {
             className='form-input text-center text-primary'
             onClick={handleBackgroundClick}
         >
-            {data.imageUrl && <div className='content-center'>
-                <img className='mx-auto' src={data.imageUrl} alt='' />
-            </div>}
+            {data.image_url && (
+                <div className='content-center'>
+                    <img className='mx-auto' src={data.image_url} alt='' />
+                </div>
+            )}
+
             <h2 className='text-4xl font-semibold leading-49 px-3'>
                 {data.question}
             </h2>
-            <p className={`${styleDesc()}`}>{data.detailedDesc}</p>
+
+            {data.description && (
+                <p className="pt-2 text-second text-base">{data.description}</p>
+            )}
 
             {/* Displaying the intro page of wealthzen<->Aidha */}
-            <p className='text-2xl font-semibold leading-49 px-3'>{data.choices!=null && data.choices[0].name}</p>
-            <p className={`${styleDesc()}`}>{data.choices!=null && data.choices[0].desc}</p> <br/>
-            <p className='text-2xl font-semibold leading-49 px-3'>{data.choices!=null && data.choices[1].name}</p>
-            <p className={`${styleDesc()}`}>{data.choices!=null && data.choices[1].desc}</p> <br/>
-            <p className='text-2xl font-semibold leading-49 px-3'>{data.choices!=null && data.choices[2].name}</p>
-            <p className={`${styleDesc()}`}>{data.choices!=null && data.choices[2].desc}</p> <br/>
+            <p className='text-2xl font-semibold leading-49 px-3'>{data.choices!=null && data.choices[0].text}</p>
+            <p className={`${styleDesc()}`}>{data.choices!=null && data.choices[0].description}</p> <br/>
+            <p className='text-2xl font-semibold leading-49 px-3'>{data.choices!=null && data.choices[1].text}</p>
+            <p className={`${styleDesc()}`}>{data.choices!=null && data.choices[1].description}</p> <br/>
+            <p className='text-2xl font-semibold leading-49 px-3'>{data.choices!=null && data.choices[2].text}</p>
+            <p className={`${styleDesc()}`}>{data.choices!=null && data.choices[2].description}</p> <br/>
 
             <p className='pt-12'>
                 <button onClick={handleNextQuestion} className={styleButton()}>

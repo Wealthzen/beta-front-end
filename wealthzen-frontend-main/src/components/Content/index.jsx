@@ -1,203 +1,61 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import questionApi from '../../api/questionApi';
+
+// utils
+import axiosClient from '../../api/axiosClient';
+
+// Redux
 import { updateQuestion } from '../../app/currentQuestionSlice';
 import { setQuestion } from '../../app/questionsSlice';
-import FormHello from './FormHello';
+
+// Components
 import FormInput from './FormInput';
-import FormPickMultiple from './FormPickMultiple';
 import FormPickOne from './FormPickOne';
-import FormPortfolio1 from './FormPortfolio1';
-import FormPortfolio2 from './FormPortfolio2';
-import FormPortfolio3 from './FormPortfolio3';
 import FormTextOnly from './FormTextOnly';
+import FormMultiInputPercentage from './FormMultiInputPercentage';
+import FormPickMultiple from './FormPickMultiple';
 
-const dataFormPorfolio1 = {
-    style: 1,
-    title: 'Choose the Portfolio that best suits you!',
-    subTitle: 'We have used two different models to design your portfolio.',
-    items: [
-        {
-            itemTitle: 'Portfolio Recommendation A',
-            description:
-                'This portfolio is for getting the most optimum return for the risk. The return maybe higher or lower than your target return, but it is the best mix of securities to give the highest return for the risk.',
-            reveal: 'Reveal Option A',
-            etf: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            index: 80,
-            tech: 5,
-            bonds: 2,
-            reFunds: 3,
-            gold: 10,
-            volatility: 'Low',
-            timeToReturn: 'High',
-            risk: 'Med',
-            buttonText: 'I want to continue with Portfolio A',
-        },
-        {
-            itemTitle: 'Portfolio Recommendation B',
-            description:
-                'This portfolio aims to deliver your target return for the lowest possible risk.',
-            reveal: 'Reveal Option B',
-            etf: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-            index: 80,
-            tech: 5,
-            bonds: 2,
-            reFunds: 3,
-            gold: 10,
-            volatility: 'Low',
-            timeToReturn: 'High',
-            risk: 'Med',
-            buttonText: 'I want to continue with Portfolio B',
-        },
-    ],
-};
 
-const dataFormPorfolio2 = {
-    style: 2,
-    title: 'Here is your final Portfolio',
-    subTitle: 'The following allocation best suit you!',
-};
 
-const dataFormPorfolio3 = {
-    style: 2,
-    title: 'Here is your final Portfolio',
-    subTitle: 'The following allocation best suit you!',
-};
-
-Content.propTypes = {};
-
-function Content(props) {
+const Content = () => {
     const dispatch = useDispatch();
+
     const currentQuestion = useSelector((state) => state.currentQuestion);
-    const userData = useSelector((state) => state.user);
-    const allAnswer = useSelector((state) => state.currentAnswers);
-    const currentPhase = useSelector((state) => state.currentPhase);
-    const test = useSelector((state) => state.portfolioAttrState);
 
-    // Fetch all Questions using questionAPI
+    // Fetch all Questions from Backend
     useEffect(() => {
-        const fetchQuestion = async () => {
-            const question = await questionApi.getAll();
-            // console.log(question);
-            const firstQuestion = question.data[0];
-
-            // question.data.reverse(); //changing the order of questions
-
-            //swapping questions in particular
-            // let ch = question.data[5]
-            // question.data[5] = question.data[6]
-            // question.data[6] = ch
-
-            //Taking the age by ,35 or >35 options
-            question.data[1].type = "YES_NO"
-            question.data[1].inputPlaceholder = ""
-            question.data[1].button = ""
-
-            let changedchoise = [{text: "<35",value: "True",imageUrl: "" , investmentAttributes: null, order: 1,portfolioAttributes:null},
-            {text: ">35",value: "False",imageUrl: "" , investmentAttributes: null, order: 2,portfolioAttributes:null}]
-
-            question.data[1].choices = changedchoise
-
-            question.data.splice(3,1) //removing the "care about" question.
-
-            //changing the question itsellf.
-            // question.data[0].question = "What's your name?"
-            // question.data[1].question = "What's your age?"
-
-            console.log(question);
-
-            dispatch(setQuestion(question.data));
-            dispatch(updateQuestion(firstQuestion));
-        };
-        fetchQuestion();
+        axiosClient.get('/questions/')
+        .then(questions => {
+            dispatch(setQuestion(questions))
+            dispatch(updateQuestion(questions[0]))
+        })
     }, [dispatch]);
-    
-
-    const style = () => {
-        switch (currentQuestion.type) {
-            case 'PICK_ONE_1':
-            case 'PICK_MULTIPLE_1':
-                return 1;
-            case 'PICK_ONE_2':
-            case 'PICK_MULTIPLE_2':
-                return 2;
-            case 'PICK_ONE_3':
-            case 'PICK_MULTIPLE_3':
-                return 3;
-            case 'YES_NO':
-                return 4;
-            default:
-                return 1;
-        }
-    };
 
     const component = () => {
-        switch (currentPhase) {
-            case 2:
-                return <FormPortfolio1 data={dataFormPorfolio1} />;
-            case 4:
-                return <FormPortfolio2 data={dataFormPorfolio2} />;
-            default:
-                break;
-        }
         switch (currentQuestion.type) {
-            case 'SUCCESSFULLY':
-                return <FormPortfolio3 data={dataFormPorfolio3} />;
-            case 'FORM_HELLO':
-                return <FormHello />;
             case 'READ_ONLY':
                 return <FormTextOnly data={currentQuestion} />;
-            case 'FORM_INPUT':
-                return <FormInput data={currentQuestion} answers={allAnswer} />;
-            case 'PICK_ONE_1':
-            case 'PICK_ONE_2':
-            case 'PICK_ONE_3':
-            case 'YES_NO':
-                return (
-                    <FormPickOne
-                        data={currentQuestion}
-                        allAnswer={allAnswer}
-                        style={style()}
-                    />
-                );
-            case 'PICK_MULTIPLE_1':
-            case 'PICK_MULTIPLE_2':
-            case 'PICK_MULTIPLE_3':
-                return (
-                    <FormPickMultiple
-                        data={currentQuestion}
-                        allAnswer={allAnswer}
-                        style={style()}
-                    />
-                );
-            case 'FORM_PORTFOLIO_1':
-                return <FormPortfolio1 data={dataFormPorfolio1} />;
-            case 'FORM_PORTFOLIO_2':
-                return <FormPortfolio2 data={dataFormPorfolio2} />;
-            case 'FORM_PORTFOLIO_3':
-                return <FormPortfolio3 data={dataFormPorfolio3} />;
-            default:
+            case 'TEXT_INPUT':
                 return <FormInput data={currentQuestion} />;
+            case 'MULTIPLE_CHOICE':
+                return <FormPickOne data={currentQuestion} />;
+            case 'MORE_THAN_ONE_CHOICE':
+                return <FormPickMultiple data={currentQuestion} />;
+            case 'MULTI_INPUT_PERCENTAGE':
+                return <FormMultiInputPercentage data={currentQuestion} />;
+            default:
+                return 'PLEASE SELECT VALID QUESTION TYPE'
         }
-    };
+    }
 
     return (
-        <main
-            className={`text-primary py-8 ${
-                currentQuestion.type === 'SUCCESSFULLY' ||
-                currentQuestion.type === 'FORM_PORTFOLIO_3' ||
-                currentPhase === 2 ||
-                currentPhase === 4 ||
-                currentPhase === 1
-                    ? 'h-auto'
-                    : 'h-75.887'
-            }`}
-        >
+        <div className="text-primary py-8 h-auto">
             <div className='main-content h-full flex items-center justify-center max-w-1152 px-3 mx-auto'>
-                {component()}
-            </div>
-        </main>
-    );
+                    {component()}
+                </div>
+        </div>
+
+    )
 }
 
-export default Content;
+export default Content
