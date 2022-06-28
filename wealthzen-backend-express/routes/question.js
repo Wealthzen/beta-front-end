@@ -34,7 +34,7 @@ router.post(
         // TODO: Add Validations
         new Question(req.body).save()
             .then(question => res.json(question))
-            .catch(err => res.status(500).json({ err: "Internal Server Error" }));
+            .catch(err => res.status(500).json({ err: "Internal Server Error", err }));
     }
 )
 
