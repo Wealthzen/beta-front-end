@@ -35,7 +35,6 @@ function FormPickMultiple(props) {
         let temp = {};
         data.choices.forEach(choice => temp[choice.value] = false);
             var selectedValue = checkAnswerExisted(data, allAnswer);
-            console.log(selectedValue);
             if(selectedValue) {
                 setSelected(selectedValue);
             } else {

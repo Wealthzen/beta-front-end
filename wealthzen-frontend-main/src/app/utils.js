@@ -92,7 +92,6 @@ export const checkPreviousQuestion = (questions, answers, latestAnswer) => {
  */
 export const checkAnswerExisted = (currentQuestion, allAnswer) => {
     var index = allAnswer.findIndex((x) => x.questionId === currentQuestion.order);
-    console.log(allAnswer[index]);
     return index === -1 ? '' : allAnswer[index].answer ? allAnswer[index].answer : '';
 };
 

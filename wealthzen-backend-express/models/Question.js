@@ -43,7 +43,8 @@ const questionSchema = new Schema({
             image_url: {
                 type: String,
                 trim: true
-            }
+            },
+            form_variables: {}
         }
     ],
     button: {
