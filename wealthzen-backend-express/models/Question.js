@@ -29,7 +29,8 @@ const questionSchema = new Schema({
                 type: Number,
                 required: true,
                 trim: true,
-                min: 0
+                min: 0,
+                unique: true
             },
             placeholder: {
                 type: String,
