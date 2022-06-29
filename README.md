@@ -1,28 +1,52 @@
-# beta (both FE & BE)
+# Wealthzen
 
-1. Decouple optimizer from the frontend, show static portfolio instead.
-2. Change the order of questions
-3. Change the question itself and make sure it gets saved in the database.
+# Environment Setup (ubuntu)
 
+## Update
 
-## APIS: 
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
 
-### get all users
-https://wztestbe.ga/api/users
+## Nodejs installation
 
+```bash
+sudo apt install npm
+```
 
-### get all questions
-https://wztestbe.ga/api/questions
+## MongoDB
 
+-   Follow the Documentation `https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/`
+-   If the current version of ubuntu is 22 then installation fails with the following error:
 
-### get specific question
-https://wztestbe.ga/api/questions/1
+```
+The following packages have unmet dependencies:
+ mongodb-org-mongos : Depends: libssl1.1 (>= 1.1.1) but it is not installable
+ mongodb-org-server : Depends: libssl1.1 (>= 1.1.1) but it is not installable
+ mongodb-org-shell : Depends: libssl1.1 (>= 1.1.1) but it is not installable
+```
 
-### get all answers (empty because stuck at portfolio generation due to linkage with optimizer)
-https://wztestbe.ga/api/answers
+-   Follow the below thread to clear the above error and then continue the installation:
+    [https://askubuntu.com/questions/1403619/mongodb-install-fails-on-ubuntu-22-04-depends-on-libssl1-1-but-it-is-not-insta](https://askubuntu.com/questions/1403619/mongodb-install-fails-on-ubuntu-22-04-depends-on-libssl1-1-but-it-is-not-insta)
 
-### get all portfolios (empty because stuck at portfolio generation due to linkage with optimizer)
-https://wztestbe.ga/api/portfolios
+````
 
-### get all quizzes (not working)
-https://wztestbe.ga/api/quizzes
+# Installation
+
+## Download the Source Code (git)
+
+```bash
+git clone https://github.com/Wealthzen/beta-front-end.git
+cd beta-front-end
+````
+
+## Setting up the Backend
+
+```bash
+cd wealthzen-backend-express/
+npm install
+echo 'MONGO_URI=mongodb://localhost:27017/wealthzen' > .env
+mongoimport --jsonArray --db wealthzen --collection questions --file data/questions.json
+npm start
+```
