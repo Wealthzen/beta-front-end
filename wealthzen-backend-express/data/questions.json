@@ -1,0 +1,263 @@
+[
+    {
+        "type": "READ_ONLY",
+        "question": "Wealthzen<-->Aidha",
+        "choices": [
+            {
+                "text": "Aidha",
+                "value": "A",
+                "order": 1,
+                "description": "Aidha - Sanskrit for 'that to which we aspire' - teaches financial literacy and confidence skills to foreign domestic workers and lower-income Singaporean women.",
+                "_id": "62b6e0dc9a88d97e986bdf0b"
+            },
+            {
+                "text": "WealthZen",
+                "value": "B",
+                "order": 2,
+                "description": "Making your investing journey a learning experience. Team conducts financial education programs for Aidha",
+                "_id": "62b6e0dc9a88d97e986bdf0c"
+            },
+            {
+                "text": "How you are helping us?",
+                "value": "B",
+                "order": 3,
+                "description": "When you complete this 15 min beta test, Wealthzen commits 15 minutes to educate 1 woman in Singapore",
+                "_id": "62b6e0dc9a88d97e986bdf0d"
+            }
+        ],
+        "button": "Continue",
+        "phase": 1,
+        "order": 0,
+        "description": "Help low income women achieve economic independence through financial education",
+        "image_url": "https://firebasestorage.googleapis.com/v0/b/riktam-c2e71.appspot.com/o/time.png?alt=media&token=6aa38231-b0d0-422f-b850-7db31dd60399"
+    },
+    {
+        "type": "TEXT_INPUT",
+        "question": "What is your Name?",
+        "button": "Continue",
+        "phase": 1,
+        "order": 1,
+        "input_placeholder": "Eg. Gaurav",
+        "user_prop": "name"
+    },
+    {
+        "type": "TEXT_INPUT",
+        "question": "What is your Email?",
+        "button": "Continue",
+        "phase": 1,
+        "order": 2,
+        "input_placeholder": "Eg. gaurav@gmail.com",
+        "user_prop": "email"
+    },
+    {
+        "type": "CHOICE_INPUT",
+        "question": "How much investable wealth do you have?",
+        "choices": [
+            {
+                "text": "I am ok to share that with you",
+                "value": "A",
+                "order": 1,
+                "placeholder": "Tell Us",
+                "description": "SGD",
+                "form_variables": {
+                    "input": true
+                },
+                "_id": "62b9c18ca48c5d8e571911c1"
+            },
+            {
+                "text": "I can't reveal that",
+                "value": "B",
+                "order": 2,
+                "description": "Let us assume it is $100,000",
+                "_id": "62b9c18ca48c5d8e571911c2"
+            }
+        ],
+        "button": "Continue",
+        "phase": 1,
+        "order": 3
+    },
+    {
+        "type": "MULTI_INPUT_PERCENTAGE",
+        "question": "What best describes your investment portfolio?",
+        "choices": [
+            {
+                "text": "Advised Portfolios",
+                "value": "A",
+                "order": 1,
+                "placeholder": "% of wealth",
+                "description": "E.g. Endowus Core Aggressive (80% Equity) Portfolio",
+                "_id": "62b6de129a88d97e986bdf03"
+            },
+            {
+                "text": "Stocks",
+                "value": "B",
+                "order": 2,
+                "placeholder": "% of wealth",
+                "description": "E.g. Google stock that you hold with a broker like Saxo",
+                "_id": "62b6de129a88d97e986bdf04"
+            },
+            {
+                "text": "Funds, ETFs",
+                "value": "C",
+                "order": 3,
+                "placeholder": "% of wealth",
+                "description": "E.g. Mutual Funds you hold on Fundsupermart",
+                "_id": "62b6de129a88d97e986bdf05"
+            },
+            {
+                "text": "Cash",
+                "value": "D",
+                "order": 4,
+                "placeholder": "% of wealth",
+                "description": "E.g. Savings A/C, FDs",
+                "_id": "62b6de129a88d97e986bdf06"
+            },
+            {
+                "text": "Something Else",
+                "value": "E",
+                "order": 5,
+                "placeholder": "% of wealth",
+                "description": "E.g. Advised portfolio with a bank",
+                "_id": "62b6de129a88d97e986bdf07"
+            }
+        ],
+        "button": "Continue",
+        "phase": 1,
+        "order": 4
+    },
+    {
+        "type": "MORE_THAN_ONE_CHOICE",
+        "question": "Which robo advisory portfolio do you have?",
+        "choices": [
+            {
+                "text": "Endowus Core portfolios",
+                "value": "A",
+                "order": 1,
+                "_id": "62b927d7f80058a9e23679ac"
+            },
+            {
+                "text": "DBS Digibanking",
+                "value": "B",
+                "order": 2,
+                "_id": "62b927d7f80058a9e23679ad"
+            },
+            {
+                "text": "Some other",
+                "value": "C",
+                "order": 3,
+                "_id": "62b927d7f80058a9e23679ae"
+            }
+        ],
+        "button": "Continue",
+        "phase": 1,
+        "order": 5
+    },
+    {
+        "type": "MULTIPLE_CHOICE",
+        "question": "What is the nature of your robo advised portfolio in general?",
+        "choices": [
+            {
+                "text": "Aggressive : ~ 80% Equity",
+                "value": "A",
+                "order": 1,
+                "_id": "62b92dc5f80058a9e23679b9"
+            },
+            {
+                "text": "Balanced ~ 50% Equity",
+                "value": "B",
+                "order": 2,
+                "_id": "62b92dc5f80058a9e23679ba"
+            },
+            {
+                "text": "Conservative ~20% Equity",
+                "value": "C",
+                "order": 3,
+                "_id": "62b92dc5f80058a9e23679bb"
+            }
+        ],
+        "button": "Continue",
+        "phase": 1,
+        "order": 6
+    },
+    {
+        "type": "MULTIPLE_CHOICE",
+        "question": "What kind of stocks do you own?",
+        "choices": [
+            {
+                "text": "Large well known(Google, Exxon, Citibank)",
+                "value": "A",
+                "order": 1,
+                "_id": "62b92e78f80058a9e23679bf"
+            },
+            {
+                "text": "Sector / geo specific (e.g. Pure Tech)",
+                "value": "B",
+                "order": 2,
+                "_id": "62b92e78f80058a9e23679c0"
+            },
+            {
+                "text": "Some other",
+                "value": "C",
+                "order": 3,
+                "_id": "62b92e78f80058a9e23679c1"
+            }
+        ],
+        "button": "Continue",
+        "phase": 1,
+        "order": 7
+    },
+    {
+        "type": "MULTIPLE_CHOICE",
+        "question": "How many stocks make up roughly 80% of your stock portfolio?",
+        "choices": [
+            {
+                "text": "< 5",
+                "value": "A",
+                "order": 1,
+                "_id": "62b92ea8f80058a9e23679c4"
+            },
+            {
+                "text": "5-15",
+                "value": "B",
+                "order": 2,
+                "_id": "62b92ea8f80058a9e23679c5"
+            },
+            {
+                "text": "> 15",
+                "value": "C",
+                "order": 3,
+                "_id": "62b92ea8f80058a9e23679c6"
+            }
+        ],
+        "button": "Continue",
+        "phase": 1,
+        "order": 8
+    },
+    {
+        "type": "MULTIPLE_CHOICE",
+        "question": "What kind of funds/ ETFs do you own?",
+        "choices": [
+            {
+                "text": "Diversified (e.g. S&P 500 ETF)",
+                "value": "A",
+                "order": 1,
+                "_id": "62b92eddf80058a9e23679c9"
+            },
+            {
+                "text": "Sector / Geo specific (e.g. Pure Tech, only China)",
+                "value": "B",
+                "order": 2,
+                "_id": "62b92eddf80058a9e23679ca"
+            },
+            {
+                "text": "Some other",
+                "value": "C",
+                "order": 3,
+                "_id": "62b92eddf80058a9e23679cb"
+            }
+        ],
+        "button": "Continue",
+        "phase": 1,
+        "order": 9
+    }
+]
