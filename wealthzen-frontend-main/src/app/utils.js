@@ -411,7 +411,7 @@ export const getPortfolioOptions = (formData) => {
 export const getBaseUrl = () => {
     let baseURL;
     if (window.location.href.split(':')[1].substring(2) === 'localhost' || window.location.href.split(':')[1].substring(2) === '127.0.0.1') {
-        baseURL = 'http://127.0.0.1:5555/api';
+        baseURL = 'http://3.140.207.244:5555/api';
     } else {
         baseURL = 'http://3.140.207.244:5555/api';
     }

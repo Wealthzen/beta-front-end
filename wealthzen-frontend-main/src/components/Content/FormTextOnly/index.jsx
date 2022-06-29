@@ -113,6 +113,29 @@ function FormTextOnly(props) {
             )}
 
             {/* Displaying the intro page of wealthzen<->Aidha */}
+
+            {/* <span class="inline-grid grid-cols-2 gap-4">
+            <span>01</span>
+            <span>02</span>
+            </span>
+            <span class="inline-grid grid-cols-2 gap-4">
+            <span>01</span>
+            <span>02</span>
+            </span> */}
+
+            {/* <div className={`grid gap-4 grid-cols-2 grid-rows-2`}>
+                <div>
+                    <p className='text-2xl font-semibold leading-49 px-3'>{data.choices!=null && data.choices[0].text}</p>
+                    <p className={`${styleDesc()}`}>{data.choices!=null && data.choices[0].description}</p> <br/>
+                </div>
+
+                <div>
+                    <p className='text-2xl font-semibold leading-49 px-3'>{data.choices!=null && data.choices[1].text}</p>
+                    <p className={`${styleDesc()}`}>{data.choices!=null && data.choices[1].description}</p> <br/>
+                </div>
+                
+            </div> */}
+
             <p className='text-2xl font-semibold leading-49 px-3'>{data.choices!=null && data.choices[0].text}</p>
             <p className={`${styleDesc()}`}>{data.choices!=null && data.choices[0].description}</p> <br/>
             <p className='text-2xl font-semibold leading-49 px-3'>{data.choices!=null && data.choices[1].text}</p>

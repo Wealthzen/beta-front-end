@@ -78,7 +78,7 @@ function FormPickMultipleItem(props) {
     return (
         <div className={`${itemStyle()}`}>
             <figure
-                className={`flex h-full relative items-center px-8 py-6 border rounded-lg border-pink hover:shadow-focus active:bg-input cursor-pointer ${figureStyle()}`}
+                className={`flex h-full transformx relative items-center px-8 py-6 border rounded-lg border-pink hover:shadow-focus active:bg-input cursor-pointer ${figureStyle()}`}
                 onClick={handleClick}
             >
                 <div className={`${inputStyle()}`}>

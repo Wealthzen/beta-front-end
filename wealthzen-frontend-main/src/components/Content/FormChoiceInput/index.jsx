@@ -109,7 +109,7 @@ const FormChoiceInput = ({ data }) => {
             </div>
 
             {error !== true && (
-                    <span className='mt-2 text-red-500'>{error}</span>
+                    <h2 className={`padt-2 mt-8 text-red-500`}>{error}</h2>
                 )}
 
             <p className='pt-12'>

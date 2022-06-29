@@ -23,6 +23,8 @@ module.exports = {
         './src/components/Footer/index.jsx',
         './src/components/Content/FormHello/index.jsx',
         './src/components/Investment/index.jsx',
+        './src/components/Content/FormMultiInputPercentage/FormMultiInputPercentageOption/index.jsx',
+        './src/components/Content/FormChoiceInput/FormChoiceInputItem/index.jsx',
     ],
     theme: {
         extend: {
