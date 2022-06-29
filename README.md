@@ -17,7 +17,7 @@ sudo apt upgrade -y
 sudo apt install npm
 ```
 
-## MongoDB
+## MongoDB installation
 
 -   Follow the Documentation `https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/`
 -   If the current version of ubuntu is 22 then installation fails with the following error:
@@ -31,6 +31,13 @@ The following packages have unmet dependencies:
 
 -   Follow the below thread to clear the above error and then continue the installation:
     [https://askubuntu.com/questions/1403619/mongodb-install-fails-on-ubuntu-22-04-depends-on-libssl1-1-but-it-is-not-insta](https://askubuntu.com/questions/1403619/mongodb-install-fails-on-ubuntu-22-04-depends-on-libssl1-1-but-it-is-not-insta)
+
+## Nginx Installation & Configuration
+
+```bash
+sudo apt install nginx
+sudo systemctl start nginx
+```
 
 <br />
 
@@ -63,6 +70,12 @@ npm start
 
 # Installation (Production Environment)
 
--
--
--
+## Setting up the Frontend
+
+```bash
+cd wealthzen-front-end/
+npm run build
+sudo rm -rf /var/www/html/*
+sudo cp -r build/* /var/www/html/
+sudo service nginx restart
+```
