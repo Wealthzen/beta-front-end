@@ -15,6 +15,7 @@ import FormTextOnly from './FormTextOnly';
 import FormMultiInputPercentage from './FormMultiInputPercentage';
 import FormPickMultiple from './FormPickMultiple';
 import FormChoiceInput from './FormChoiceInput';
+import UploadData from './UploadData';
 
 
 
@@ -46,6 +47,8 @@ const Content = () => {
                 return <FormMultiInputPercentage data={currentQuestion} />;
             case 'CHOICE_INPUT':
                 return <FormChoiceInput data={currentQuestion} />;
+            case 'SUCCESSFULLY':
+                return <UploadData />;
             default:
                 return 'PLEASE SELECT VALID QUESTION TYPE'
         }

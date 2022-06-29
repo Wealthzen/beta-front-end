@@ -1,0 +1,75 @@
+@URI = http://127.0.0.1
+@PORT = 5555
+@VERSION = HTTP/1.1
+
+
+# Add Questions
+POST {{URI}}:{{PORT}}/api/answers {{VERSION}}
+Content-Type: application/json
+
+{
+    "name": "Dhamareshwarakumar Gandikota",
+    "email": "dhamareshwara@riktamtech.com",
+    "answers": [
+      {
+        "question_id": 1,
+        "answer": {
+          "value": "Dhamareshwarakumar Gandikota"
+        }
+      },
+      {
+        "question_id": 2,
+        "answer": {
+          "value": "dhamareshwara@riktamtech.com"
+        }
+      },
+      {
+        "question_id": 3,
+        "answer": {
+          "B": "Let us assume it is $100,000"
+        }
+      },
+      {
+        "question_id": 4,
+        "answer": {
+          "A": "20",
+          "B": "20",
+          "C": "20",
+          "D": "20",
+          "E": "20"
+        }
+      },
+      {
+        "question_id": 5,
+        "answer": {
+          "A": true,
+          "B": true,
+          "C": false
+        }
+      },
+      {
+        "question_id": 6,
+        "answer": {
+          "B": "Balanced ~ 50% Equity"
+        }
+      },
+      {
+        "question_id": 7,
+        "answer": {
+          "A": "Large well known(Google, Exxon, Citibank)"
+        }
+      },
+      {
+        "question_id": 8,
+        "answer": {
+          "B": "5-15"
+        }
+      },
+      {
+        "question_id": 9,
+        "answer": {
+          "C": "Some other"
+        }
+      }
+    ]
+  }
