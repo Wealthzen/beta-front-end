@@ -72,7 +72,7 @@ function FormPickOneItem(props) {
             };
 
             // post user data to api
-            uploadResults(userData, allAnswer);
+            // uploadResults(userData, allAnswer);
 
             dispath(updateQuestion(successfully));
         } else {

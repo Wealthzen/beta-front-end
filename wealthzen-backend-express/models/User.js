@@ -17,10 +17,6 @@ const userSchema = new Schema({
         minlength: 3,
         maxlength: 255
     },
-    password: {
-        type: String,
-        required: true,
-    },
     answers: [
         {
             question_id: {

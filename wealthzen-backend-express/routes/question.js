@@ -36,6 +36,6 @@ router.post(
             .then(question => res.json(question))
             .catch(err => res.status(500).json({ err: "Internal Server Error", err }));
     }
-)
+);
 
 module.exports = router;

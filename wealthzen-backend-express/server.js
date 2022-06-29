@@ -22,6 +22,7 @@ const PORT = process.env.PORT || 5555;
 
 // Routes
 app.use('/api/questions', require('./routes/question'));
+app.use('/api/answers', require('./routes/answer'));
 
 
 // Server

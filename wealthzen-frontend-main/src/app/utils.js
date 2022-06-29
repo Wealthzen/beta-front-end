@@ -413,7 +413,7 @@ export const getBaseUrl = () => {
     if (window.location.href.split(':')[1].substring(2) === 'localhost' || window.location.href.split(':')[1].substring(2) === '127.0.0.1') {
         baseURL = 'http://3.140.207.244:5555/api';
     } else {
-        baseURL = 'http://3.140.207.244:5555/api';
+        baseURL = 'https://wealthzen-be.ml/api';
     }
 
     return baseURL;
