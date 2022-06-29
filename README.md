@@ -1,5 +1,7 @@
 # Wealthzen
 
+<br>
+
 # Environment Setup (ubuntu)
 
 ## Update
@@ -30,16 +32,16 @@ The following packages have unmet dependencies:
 -   Follow the below thread to clear the above error and then continue the installation:
     [https://askubuntu.com/questions/1403619/mongodb-install-fails-on-ubuntu-22-04-depends-on-libssl1-1-but-it-is-not-insta](https://askubuntu.com/questions/1403619/mongodb-install-fails-on-ubuntu-22-04-depends-on-libssl1-1-but-it-is-not-insta)
 
-````
+<br />
 
-# Installation
+# Installation (Development Environment)
 
 ## Download the Source Code (git)
 
 ```bash
 git clone https://github.com/Wealthzen/beta-front-end.git
 cd beta-front-end
-````
+```
 
 ## Setting up the Backend
 
@@ -50,3 +52,17 @@ echo 'MONGO_URI=mongodb://localhost:27017/wealthzen' > .env
 mongoimport --jsonArray --db wealthzen --collection questions --file data/questions.json
 npm start
 ```
+
+## Setting up the Frontend
+
+```bash
+cd wealthzen-front-end/
+npm install
+npm start
+```
+
+# Installation (Production Environment)
+
+-
+-
+-
