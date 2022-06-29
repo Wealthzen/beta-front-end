@@ -119,7 +119,7 @@ function FormPickMultiple(props) {
                 </h2>
             )}
             
-            <div className={`${formContent()} flex`}>
+            <div className={`${formContent()} flex text-center`}>
                 {data.choices.map((item, index) => (
                     <FormPickMultipleItem
                         key={index}

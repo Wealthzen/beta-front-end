@@ -159,9 +159,11 @@ const FormMultiInputPercentage = ({ data }) => {
 
             {/* Iterate through the options */}
             {data.choices && data.choices.map((choice, index) => (
-                <FormMultiInputPercentageOption key={index} choice={choice} handleFormInputs={handleFormInputs} value={inputs[choice.value]} className="my-3"/>
+                <FormMultiInputPercentageOption key={index} choice={choice} handleFormInputs={handleFormInputs} value={inputs[choice.value]} className={`my-2`}/>
             ))}
 
+
+            {error && (<p  className={`pt-2 padt-2`} style={{color: 'red'}}>Please evaluate inputs to 100</p>)}
             {/* Continue Button */}
             <p className='pt-12'>
                 <button
@@ -174,8 +176,6 @@ const FormMultiInputPercentage = ({ data }) => {
                     ></i>
                 </button>
             </p>
-
-            {error && (<p style={{color: 'red'}}>Please evaluate inputs to 100</p>)}
 
         </div>
   )

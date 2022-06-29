@@ -29,8 +29,8 @@ const FormChoiceInputItem = ({ dataItem, selected, input, setInput, value, handl
                     <div className='flex justify-center items-center mt-2'>
                     <p>{dataItem.description}</p>
                     <input 
-                        className='text-lg leading-5 py-2.5 px-3 max-w-xs w-half placeholder:text-gray rounded-lg border-1/2 border-pink bg-neutral-100 outline-0 focus-visible:none'
-                        type='text'
+                        className='text-lg inline-table leading-5 mx-3 py-2.5 px-3 max-w-xs w-half placeholder:text-gray rounded-lg border-1/2 border-pink bg-neutral-100 outline-0 focus-visible:none'
+                        type='number'
                         name={dataItem.value}
                         placeholder={dataItem.placeholder}
                         onChange={handleInputChange}

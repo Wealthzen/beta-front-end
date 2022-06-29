@@ -78,6 +78,7 @@ function Content(props) {
     useEffect(() => {
         const fetchQuestion = async () => {
             const question = await questionApi.getAll();
+            // console.log(question);
             const firstQuestion = question.data[0];
 
             dispatch(setQuestion(question.data));
