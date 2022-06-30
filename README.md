@@ -1,28 +1,81 @@
-# beta (both FE & BE)
+# Wealthzen
 
-1. Decouple optimizer from the frontend, show static portfolio instead.
-2. Change the order of questions
-3. Change the question itself and make sure it gets saved in the database.
+<br>
 
+# Environment Setup (ubuntu)
 
-## APIS: 
+## Update
 
-### get all users
-https://wztestbe.ga/api/users
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
 
+## Nodejs installation
 
-### get all questions
-https://wztestbe.ga/api/questions
+```bash
+sudo apt install npm
+```
 
+## MongoDB installation
 
-### get specific question
-https://wztestbe.ga/api/questions/1
+-   Follow the Documentation `https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/`
+-   If the current version of ubuntu is 22 then installation fails with the following error:
 
-### get all answers (empty because stuck at portfolio generation due to linkage with optimizer)
-https://wztestbe.ga/api/answers
+```
+The following packages have unmet dependencies:
+ mongodb-org-mongos : Depends: libssl1.1 (>= 1.1.1) but it is not installable
+ mongodb-org-server : Depends: libssl1.1 (>= 1.1.1) but it is not installable
+ mongodb-org-shell : Depends: libssl1.1 (>= 1.1.1) but it is not installable
+```
 
-### get all portfolios (empty because stuck at portfolio generation due to linkage with optimizer)
-https://wztestbe.ga/api/portfolios
+-   Follow the below thread to clear the above error and then continue the installation:
+    [https://askubuntu.com/questions/1403619/mongodb-install-fails-on-ubuntu-22-04-depends-on-libssl1-1-but-it-is-not-insta](https://askubuntu.com/questions/1403619/mongodb-install-fails-on-ubuntu-22-04-depends-on-libssl1-1-but-it-is-not-insta)
 
-### get all quizzes (not working)
-https://wztestbe.ga/api/quizzes
+## Nginx Installation & Configuration
+
+```bash
+sudo apt install nginx
+sudo systemctl start nginx
+```
+
+<br />
+
+# Installation (Development Environment)
+
+## Download the Source Code (git)
+
+```bash
+git clone https://github.com/Wealthzen/beta-front-end.git
+cd beta-front-end
+```
+
+## Setting up the Backend
+
+```bash
+cd wealthzen-backend-express/
+npm install
+echo 'MONGO_URI=mongodb://localhost:27017/wealthzen' > .env
+mongoimport --jsonArray --db wealthzen --collection questions --file data/questions.json
+npm start
+```
+
+## Setting up the Frontend
+
+```bash
+cd wealthzen-front-end/
+npm install
+npm start
+```
+
+# Installation (Production Environment)
+
+## Setting up the Frontend
+
+```bash
+cd wealthzen-front-end/
+npm run build
+sudo rm -rf /var/www/html/*
+sudo cp -r build/* /var/www/html/
+sudo service nginx restart
+```
