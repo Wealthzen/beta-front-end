@@ -86,3 +86,7 @@
 {
 	transform: translateX(50%);
 }
+.bg-questionActive
+{
+	background: #EB5471;
+}

@@ -104,6 +104,7 @@ const FormChoiceInput = ({ data }) => {
                         setInput={setInput}
                         value={input[item.value]}
                         handleClick={handleClick}
+                        selected={selected}
                     />
                 ))}
             </div>
