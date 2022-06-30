@@ -25,32 +25,6 @@ const FormChoiceInputItem = ({ dataItem, selected, input, setInput, value, handl
                 )}
             </figure>
 
-
-            {/* <figure
-                className={`flex h-full m-1 relative items-center px-8 py-6 border rounded-lg border-pink hover:shadow-focus active:bg-input cursor-pointer`}
-                onClick={handleClick}
-            >
-                <div className={`absolute top-4 right-4`}>
-                    <label className={`box`}>
-                        <input
-                            className={`radio-box cursor-pointer opacity-1 h-5 w-5 checked:bg-pink`}
-                            type='checkbox'
-                            name='single'
-                        />
-                        <span className='mark'></span>
-                    </label>
-                </div>
-
-                {dataItem.text && (
-                    <label
-                        className={`sub-input text-center text-lg leading-p text-second`}
-                    >
-                        {dataItem.text}
-                    </label>
-                )}
-            </figure> */}
-
-
                 {dataItem?.form_variables?.input ? (
                     <div className='flex justify-center items-center mt-2'>
                     <p>{dataItem.description}</p>

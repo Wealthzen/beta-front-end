@@ -124,7 +124,6 @@ function FormPickMultiple(props) {
                     <FormPickMultipleItem
                         key={index}
                         dataItem={item}
-                        // selected={selected()}
                         style={style}
                         checked={selected[item.value]}
                         setSelected={setSelected}
