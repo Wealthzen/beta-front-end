@@ -79,6 +79,7 @@ module.exports = {
                 49: '3.07375rem',
             },
             colors: {
+                lightpink: '#f2b9c5',
                 primary: '#30303F',
                 second: '#626262',
                 pink: '#EB5471',
@@ -139,12 +140,14 @@ module.exports = {
             manrope: ['Manrope', 'sans-serif'],
         },
     },
-    plugins: [],
+    plugins: [
+        // require('@tailwindcss/forms')
+    ],
     purge: {
         safelist: [
-          'text-med',
-          'text-low',
-          'text-high',
+            'text-med',
+            'text-low',
+            'text-high',
         ]
-      },
+    },
 };
