@@ -68,6 +68,8 @@ npm install
 npm start
 ```
 
+<br>
+
 # Installation (Production Environment)
 
 ## Setting up the Frontend
