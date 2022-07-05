@@ -102,6 +102,7 @@ const FormChoiceInput = ({ data }) => {
                         questionId={data.order}
                         input={input}
                         setInput={setInput}
+                        selected={selected}
                         value={input[item.value]}
                         handleClick={handleClick}
                     />

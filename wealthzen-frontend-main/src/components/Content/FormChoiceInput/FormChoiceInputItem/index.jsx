@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 const FormChoiceInputItem = ({ dataItem, selected, input, setInput, value, handleClick }) => {
 
-    const selectedStyle = selected === dataItem.value ? 'bg-questionActive' : '';
+    const selectedStyle = selected === dataItem.value ? 'bg-lightpink' : '';
 
     const handleInputChange = e => {
         dataItem?.form_variables?.input && setInput({ ...input, [e.target.name]: e.target.value });
