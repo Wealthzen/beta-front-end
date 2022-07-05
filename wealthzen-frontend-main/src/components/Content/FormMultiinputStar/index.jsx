@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentAnswer } from '../../../app/currentAnswersSlice';
 import { updateQuestion } from '../../../app/currentQuestionSlice';
+import { setInvestment } from '../../../app/investmentSlice';
 import { setPhase } from '../../../app/phaseSlice';
-import { checkAnswerExisted, checkAvailableQuestion, checkListCurrentAnswer, updateNextPhase } from '../../../app/utils';
+import { caculateInvestment, checkAnswerExisted, checkAvailableQuestion, checkListCurrentAnswer, getNextQuestion, updateNextPhase } from '../../../app/utils';
 
 import FormMultiInputStarItem from './FormMultiInputStarItem';
 
@@ -27,13 +28,14 @@ const FormMultiInputStar = ({ data }) => {
         }        
     })
     useEffect(() => {
-        let selectedValue = checkAnswerExisted(data, allAnswer);
-        console.log(selectedValue);
-        if (selectedValue) {
-            setInputs(selectedValue);
-        } else {
+        // let selectedValue = checkAnswerExisted(data, allAnswer);
+        // console.log(selectedValue);
+        // if (selectedValue) {
+        //     setInputs(selectedValue);
+        // } else {
+        //     setInputs(state);
+        // }
             setInputs(state);
-        }
     }, []);
     console.log(inputs);
 
@@ -46,6 +48,13 @@ const FormMultiInputStar = ({ data }) => {
         // })
         // console.log(result);
         // return result === 100;
+        let returnValue = true;
+        Object.keys(inputs).forEach((key) => {
+            if (inputs[key] == 0) {
+                returnValue = returnValue && false;
+            }
+        })
+        return returnValue ? true : false;
     }
 
 
@@ -70,18 +79,36 @@ const FormMultiInputStar = ({ data }) => {
 
         const newCurrentAnswer = checkListCurrentAnswer(allAnswer, answer);
         dispatch(setCurrentAnswer(newCurrentAnswer));
-        dispatch(updateQuestion(nextQuestion))
+
+        if (nextQuestion === 'successfully') {
+            const successfully = {
+                type: 'SUCCESSFULLY',
+                phase: 6,
+            };
+
+            // post user data to api
+            // uploadResults(userData, allAnswer);
+
+            dispatch(updateQuestion(successfully));
+        } else {
+            const investmentAttrs = caculateInvestment(newCurrentAnswer);
+            dispatch(setInvestment(investmentAttrs));
+
+            // force next question
+            dispatch(updateQuestion(nextQuestion));
+        }
     }
 
 
     // Handle submit
     const handleButton  = e => {
+        console.log(evaluate());
         if (!evaluate()) {
             setError('Please Answer All Questions');
         } else {
             setError(null);
 
-            const nextQuestion = checkAvailableQuestion(allQuestions, data.order);
+            const nextQuestion = getNextQuestion(allQuestions, data.order);
 
             updateNextPhase(dispatch, setPhase, nextQuestion, currentPhase);
         
@@ -116,87 +143,6 @@ const FormMultiInputStar = ({ data }) => {
             {data.choices && data.choices.map((choice, index) => (
                 <FormMultiInputStarItem key={index} choice={choice} handleFormInputs={handleFormInputs} value={inputs[choice.value]} className={`my-2`}/>
             ))}
-
-        {/* <figure
-            className={`h-full px-8 py-6 border rounded-lg border-pink hover:shadow-focus min-w-264 w-full flex flex-col justify-start`}
-            style={{margin: '10px 0'}}
-        >
-            <div className='flex justify-between items-center'>
-                <p className='text-left' style={{opacity: "0.7"}}>
-                    {data.choices[0].description}
-                </p>
-                <div>
-                    <span className="star-rating">
-                      <input type="radio" name="rating1" value="1"/><i></i>
-                      <input type="radio" name="rating1" value="2"/><i></i>
-                      <input type="radio" name="rating1" value="3"/><i></i>
-                      <input type="radio" name="rating1" value="4"/><i></i>
-                      <input type="radio" name="rating1" value="5"/><i></i>
-                    </span>
-                </div>
-            </div>
-
-            <div className='flex justify-between items-center'>
-                <p className='text-left' style={{opacity: "0.7"}}>
-                    {data.choices[1].description}
-                </p>
-                <div>
-                    <span className="star-rating">
-                      <input type="radio" name="rating2" value="1"/><i></i>
-                      <input type="radio" name="rating2" value="2"/><i></i>
-                      <input type="radio" name="rating2" value="3"/><i></i>
-                      <input type="radio" name="rating2" value="4"/><i></i>
-                      <input type="radio" name="rating2" value="5"/><i></i>
-                    </span>
-                </div>
-            </div>
-
-            <div className='flex justify-between items-center'>
-                <p className='text-left' style={{opacity: "0.7"}}>
-                    {data.choices[2].description}
-                </p>
-                <div>
-                    <span className="star-rating">
-                      <input type="radio" name="rating3" value="1"/><i></i>
-                      <input type="radio" name="rating3" value="2"/><i></i>
-                      <input type="radio" name="rating3" value="3"/><i></i>
-                      <input type="radio" name="rating3" value="4"/><i></i>
-                      <input type="radio" name="rating3" value="5"/><i></i>
-                    </span>
-                </div>
-            </div>
-
-            <div className='flex justify-between items-center'>
-                <p className='text-left' style={{opacity: "0.7"}}>
-                    {data.choices[3].description}
-                </p>
-                <div>
-                    <span className="star-rating">
-                      <input type="radio" name="rating4" value="1"/><i></i>
-                      <input type="radio" name="rating4" value="2"/><i></i>
-                      <input type="radio" name="rating4" value="3"/><i></i>
-                      <input type="radio" name="rating4" value="4"/><i></i>
-                      <input type="radio" name="rating4" value="5"/><i></i>
-                    </span>
-                </div>
-            </div>
-
-            <div className='flex justify-between items-center'>
-                <p className='text-left' style={{opacity: "0.7"}}>
-                    {data.choices[4].description}
-                </p>
-                <div>
-                    <span className="star-rating">
-                      <input type="radio" name="rating5" value="1"/><i></i>
-                      <input type="radio" name="rating5" value="2"/><i></i>
-                      <input type="radio" name="rating5" value="3"/><i></i>
-                      <input type="radio" name="rating5" value="4"/><i></i>
-                      <input type="radio" name="rating5" value="5"/><i></i>
-                    </span>
-                </div>
-            </div>
-        </figure> */}
-
 
             {error && (<p  className={`pt-2 padt-2`} style={{color: 'red'}}>Please Choose Atleast One Star</p>)}
             {/* Continue Button */}

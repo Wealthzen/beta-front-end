@@ -13,15 +13,15 @@ const FormMultiInputStarItem = ({ choice, handleFormInputs, value}) => {
                     {choice.value}. {choice.text} 
                 </div> */}
                 <p className='text-left' style={{opacity: "0.7"}}>
-                    {choice.description}
+                    {choice.text}
                 </p>
                 <div>
                     <span className="star-rating">
-                      <input type="radio" name={choice.value} value="1"/><i></i>
-                      <input type="radio" name={choice.value} value="2"/><i></i>
-                      <input type="radio" name={choice.value} value="3"/><i></i>
-                      <input type="radio" name={choice.value} value="4"/><i></i>
-                      <input type="radio" name={choice.value} value="5"/><i></i>
+                      <input type="radio" name={choice.value} value="1" onClick={handleFormInputs}/><i></i>
+                      <input type="radio" name={choice.value} value="2" onClick={handleFormInputs}/><i></i>
+                      <input type="radio" name={choice.value} value="3" onClick={handleFormInputs}/><i></i>
+                      <input type="radio" name={choice.value} value="4" onClick={handleFormInputs}/><i></i>
+                      <input type="radio" name={choice.value} value="5" onClick={handleFormInputs}/><i></i>
                     </span>
                 </div>
             </div>

@@ -7,33 +7,24 @@
 POST {{URI}}:{{PORT}}/api/questions {{VERSION}}
 Content-Type: application/json
 
-  {
+{
     "type": "MULTIPLE_CHOICE",
-    "question": "What kind of funds/ ETFs do you own?",
+    "question": "How is your portfolio performing?",
     "choices": [
-      {
-        "text": "Diversified  (e.g. S&P 500 ETF)",
-        "value": "A",
-        "order": 1,
-        "_id": "62b92eddf80058a9e23679c9"
-      },
-      {
-        "text": "Sector / Geo specific (e.g. Pure Tech, only China)",
-        "value": "B",
-        "order": 2,
-        "_id": "62b92eddf80058a9e23679ca"
-      },
-      {
-        "text": "Some other",
-        "value": "C",
-        "order": 3,
-        "_id": "62b92eddf80058a9e23679cb"
-      }
+        {
+            "text": "Good :)",
+            "value": "A",
+            "order": 1
+        },
+        {
+            "text": "Not so good :(",
+            "value": "B",
+            "order": 2
+        }
     ],
     "button": "Continue",
     "phase": 1,
-    "order": 9
-  }
-
+    "order": 11
+}
 
 # GET {{URI}}:{{PORT}}/api/questions {{VERSION}}
